@@ -50,11 +50,12 @@ async function cargarProgreso() {
   try {
     const r = await fetch("/api/progreso");
     if (r.status === 401) {
-      window.location.href = "/";
-      return;
+      window.location.href = "/login.html";
+      return false;
     }
     const d = await r.json();
     COMPLETADAS = new Set(d.completadas || []);
+    return true;
   } catch (e) {
     console.error("No se pudo cargar el progreso", e);
   }
@@ -284,6 +285,6 @@ function leccionHTML(l, color) {
 //  ARRANQUE
 // ============================================================
 (async function init() {
-  await cargarProgreso();
-  vistaPanel();
+  const ok = await cargarProgreso();
+  if (ok) vistaPanel(); // solo muestra el panel si hay sesión válida
 })();
