@@ -15,9 +15,12 @@
       radial-gradient(700px 400px at 0% 110%, #16241c 0%, transparent 55%),
       var(--bg);
     color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
-    display:grid;place-items:center;padding:1.5rem}
+    display:grid;place-items:center;padding:1.5rem;overflow:hidden}
+  .escena{position:relative;width:100%;max-width:760px;display:flex;align-items:center;
+    justify-content:center;gap:1rem}
   .card{width:100%;max-width:400px;background:var(--panel);border:1px solid var(--line);
-    border-radius:var(--radius);padding:2.2rem 2rem;box-shadow:0 20px 60px rgba(0,0,0,.4)}
+    border-radius:var(--radius);padding:2.2rem 2rem;box-shadow:0 20px 60px rgba(0,0,0,.4);
+    z-index:2}
   .badge{font-family:ui-monospace,Menlo,monospace;font-size:.7rem;letter-spacing:.25em;
     text-transform:uppercase;color:var(--accent);margin:0 0 1.2rem}
   h1{font-size:1.5rem;margin:0 0 .3rem;letter-spacing:-.02em}
@@ -33,18 +36,85 @@
   button:disabled{opacity:.6;cursor:default}
   .err{color:var(--err);font-size:.84rem;margin-top:.8rem;min-height:1.1em}
   .foot{margin-top:1.6rem;font-size:.74rem;color:var(--muted);text-align:center;line-height:1.5}
+
+  /* ===== Personajes pixel art en los costados ===== */
+  .mascota{position:relative;flex-shrink:0;display:flex;flex-direction:column;
+    align-items:center;gap:8px;image-rendering:pixelated}
+  .globo{background:#fff;color:#111;font-size:11px;font-weight:700;padding:6px 10px;
+    border-radius:7px;font-family:ui-monospace,monospace;letter-spacing:.3px;
+    text-align:center;position:relative;line-height:1.35}
+  .globo::after{content:"";position:absolute;bottom:-5px;left:50%;margin-left:-4px;
+    border:5px solid transparent;border-top-color:#fff;border-bottom:0}
+  .globo-perro{width:124px;white-space:normal;font-size:9.5px}
+  .pers{animation:respira 1.6s ease-in-out infinite}
+  .perro{animation:respira 1.3s ease-in-out infinite}
+  @keyframes respira{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
+
+  /* en pantallas chicas, ocultar mascotas para no estorbar el login */
+  @media (max-width:680px){.mascota{display:none}}
 </style>
 </head>
 <body>
-  <div class="card">
-    <p class="badge">Academia personal</p>
-    <h1>Centro de aprendizaje</h1>
-    <p class="sub">Ingresa tu clave para acceder a tus rutas y progreso.</p>
-    <label for="pw">Clave de acceso</label>
-    <input type="password" id="pw" autocomplete="current-password" placeholder="********" autofocus>
-    <button id="btn">Entrar</button>
-    <div class="err" id="err"></div>
-    <p class="foot">Tu progreso se guarda de forma segura en el servidor.<br>Accede desde cualquier dispositivo.</p>
+  <div class="escena">
+
+    <!-- Personaje izquierda -->
+    <div class="mascota">
+      <div class="globo">Quiero<br>aprender</div>
+      <svg class="pers" width="70" height="86" viewBox="0 0 17 21" xmlns="http://www.w3.org/2000/svg" shape-rendering="crispEdges">
+        <rect x="5" y="0" width="7" height="2" fill="#4a6fd4"/>
+        <rect x="4" y="2" width="9" height="2" fill="#5d82e8"/>
+        <rect x="5" y="4" width="7" height="4" fill="#e8b890"/>
+        <rect x="6" y="5" width="1" height="1" fill="#222"/>
+        <rect x="10" y="5" width="1" height="1" fill="#222"/>
+        <rect x="4" y="8" width="9" height="6" fill="#8b6fc9"/>
+        <rect x="3" y="9" width="1" height="4" fill="#8b6fc9"/>
+        <rect x="13" y="9" width="1" height="4" fill="#8b6fc9"/>
+        <rect x="2" y="12" width="2" height="2" fill="#e8b890"/>
+        <rect x="13" y="12" width="2" height="2" fill="#e8b890"/>
+        <rect x="5" y="14" width="3" height="5" fill="#3a4a6a"/>
+        <rect x="9" y="14" width="3" height="5" fill="#3a4a6a"/>
+        <rect x="5" y="19" width="3" height="2" fill="#222"/>
+        <rect x="9" y="19" width="3" height="2" fill="#222"/>
+      </svg>
+    </div>
+
+    <!-- Tarjeta de login -->
+    <div class="card">
+      <p class="badge">Academia personal</p>
+      <h1>Centro de aprendizaje</h1>
+      <p class="sub">Ingresa tu clave para acceder a tus rutas y progreso.</p>
+      <label for="pw">Clave de acceso</label>
+      <input type="password" id="pw" autocomplete="current-password" placeholder="********" autofocus>
+      <button id="btn">Entrar</button>
+      <div class="err" id="err"></div>
+      <p class="foot">Tu progreso se guarda de forma segura en el servidor.<br>Accede desde cualquier dispositivo.</p>
+    </div>
+
+    <!-- Perrito derecha -->
+    <div class="mascota">
+      <div class="globo globo-perro">Pirata, Mabe, Mock, Don Perro: somos un equipo</div>
+      <svg class="perro" width="84" height="63" viewBox="0 0 16 12" xmlns="http://www.w3.org/2000/svg" shape-rendering="crispEdges">
+        <!-- cuerpo gordito (blanco) -->
+        <rect x="2" y="3" width="10" height="6" fill="#f0f0f0"/>
+        <rect x="2" y="4" width="11" height="5" fill="#f5f5f5"/>
+        <!-- panza -->
+        <rect x="3" y="8" width="9" height="2" fill="#e2e2e2"/>
+        <!-- cabeza (blanca) -->
+        <rect x="10" y="1" width="5" height="5" fill="#f5f5f5"/>
+        <!-- oreja (gris suave) -->
+        <rect x="10" y="0" width="2" height="3" fill="#c8c8c8"/>
+        <!-- ojo -->
+        <rect x="13" y="2" width="1" height="1" fill="#222"/>
+        <!-- hocico -->
+        <rect x="14" y="3" width="1" height="2" fill="#444"/>
+        <!-- patas gorditas -->
+        <rect x="3" y="9" width="3" height="3" fill="#dcdcdc"/>
+        <rect x="9" y="9" width="3" height="3" fill="#dcdcdc"/>
+        <!-- cola -->
+        <rect x="0" y="2" width="2" height="3" fill="#f5f5f5"/>
+      </svg>
+    </div>
+
   </div>
 <script>
   const pw = document.getElementById('pw');
