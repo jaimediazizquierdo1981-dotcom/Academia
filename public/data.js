@@ -20,71 +20,99 @@ const ACADEMIA = {
           id: "js-node",
           titulo: "De JavaScript a Node.js",
           color: "#5FA869",
-          horas: "8–9 h",
+          horas: "15 h (3 días × 5h)",
           resumen:
-            "La base técnica de todo. El lenguaje (JavaScript) y el entorno que lo ejecuta en el servidor (Node). Una sola historia.",
+            "La base técnica de todo. El lenguaje (JavaScript) y el entorno que lo ejecuta en el servidor (Node). Una sola historia. Plan desde cero: video para entender + plataforma para teclear.",
           porque:
-            "Node ES JavaScript en el servidor. Tus bandejas son exactamente esto: JS corriendo en Node sobre Render. Domina JS puro primero y todo lo demás cae por su peso.",
+            "Node ES JavaScript en el servidor. Tus bandejas son exactamente esto: JS corriendo en Node sobre Render. Domina JS puro primero y todo lo demás cae por su peso. Método: ver el concepto, teclearlo tú mismo, romperlo y arreglarlo. No copiar y pegar.",
           bloques: [
             {
-              titulo: "Fase 1 · JavaScript — Día 1: Fundamentos del lenguaje",
+              titulo: "Día 1 · JavaScript: fundamentos del lenguaje (5h)",
               lecciones: [
                 {
                   id: "jsn-1",
-                  titulo: "Curso: Learn JavaScript with Clear Explanations (parte 1)",
+                  titulo: "Bloque 1 (~1h45): variables, tipos, operadores, condicionales",
                   detalle:
-                    "freeCodeCamp (Steven Garcia). Variables, tipos, operadores, condicionales, bucles, funciones, arrays y objetos.",
-                  url: "https://www.youtube.com/results?search_query=learn+javascript+clear+explanations+freecodecamp+steven+garcia",
+                    "Abre la consola del navegador (F12 → Console). let/const, strings/números/booleanos, operadores (===, >, &&, ||), if/else. Teclea todo tú mismo: crea variables con tus datos, combina texto y números, haz comparaciones, y un if que decida 'adulto/menor' según una edad.",
+                  url: "https://aprendejavascript.dev/",
                 },
-              ],
-            },
-            {
-              titulo: "Fase 1 · JavaScript — Día 2: Lo asíncrono",
-              lecciones: [
                 {
                   id: "jsn-2",
-                  titulo: "Curso (parte 2) + foco en async/await",
+                  titulo: "Bloque 2 (~1h45): bucles (for, while)",
                   detalle:
-                    "Funciones flecha, métodos de array (map/filter/forEach), promesas, async/await, módulos (import/require). El corazón de tus bandejas.",
-                  url: "",
+                    "Repetir acciones. Teclea: imprime del 1 al 10; luego solo los pares. Lee y haz los ejercicios del mismo tema en es.javascript.info (tienen solución al final). Ciclo: ves el concepto en video → lo lees → lo tecleas → resuelves el ejercicio.",
+                  url: "https://es.javascript.info/",
                 },
                 {
                   id: "jsn-3",
-                  titulo: "Práctica: reconoce JS en tu propio código",
+                  titulo: "Bloque 3 (~1h15): práctica integradora",
                   detalle:
-                    "Abre una bandeja. Identifica variables, funciones, objetos, los await, los require. Cada cosa que reconozcas es un concepto vivo en tu app.",
+                    "Sin tema nuevo, solo consolidar. Mini-programa: una lista de edades y un bucle con condicional que diga quiénes son adultos. CIERRE DÍA 1: ¿puedes escribir sin copiar un programa que recorra una lista de números y muestre solo los mayores a 10? Si te trabas, repite el tema antes de avanzar.",
                   url: "",
                 },
               ],
             },
             {
-              titulo: "Fase 2 · Node — Día 3: Fundamentos de Node.js",
+              titulo: "Día 2 · JavaScript: funciones, arrays y objetos (5h)",
               lecciones: [
                 {
                   id: "jsn-4",
-                  titulo: "Curso: Learn Node.js — Full Tutorial for Beginners",
+                  titulo: "Bloque 1 (~1h45): funciones",
                   detalle:
-                    "freeCodeCamp. Qué es Node, módulos, eventos, file system, npm, package.json, servidor HTTP.",
-                  url: "https://www.youtube.com/results?search_query=learn+node.js+full+tutorial+beginners+freecodecamp",
+                    "El corazón del lenguaje. Qué es una función, parámetros, return, y funciones flecha (=>), que verás por todo tu stack. Teclea: una función que sume dos números; otra que reciba un nombre y devuelva un saludo.",
+                  url: "https://es.javascript.info/function-basics",
+                },
+                {
+                  id: "jsn-5",
+                  titulo: "Bloque 2 (~1h45): arrays y objetos",
+                  detalle:
+                    "Arrays y sus métodos clave: map (transformar), filter (filtrar), forEach (recorrer). Objetos { nombre: 'Jaime', rol: 'CTO' }, la base de cómo viajan los datos en las APIs.",
+                  url: "https://es.javascript.info/array-methods",
+                },
+                {
+                  id: "jsn-6",
+                  titulo: "Bloque 3 (~1h15): práctica integradora (clasificador simulado)",
+                  detalle:
+                    "Una lista de objetos (correos simulados con remitente y prioridad) y usa filter para quedarte con los urgentes y map para transformarlos. CIERRE DÍA 2: esto es la lógica exacta de tus clasificadores. Cuando lo logres sin copiar, entiendes por dentro algo que ya tienes funcionando.",
+                  url: "",
                 },
               ],
             },
             {
-              titulo: "Fase 2 · Node — Día 4: Express + tu backend",
+              titulo: "Día 3 · Asincronía + arranque de Node (5h)",
               lecciones: [
                 {
-                  id: "jsn-5",
-                  titulo: "Express (crash course)",
+                  id: "jsn-7",
+                  titulo: "Bloque 1 (~1h45): asincronía (promesas, async/await)",
                   detalle:
-                    "El framework que organiza tu servidor: rutas, middleware, GET/POST. El esqueleto de tus bandejas.",
-                  url: "https://www.youtube.com/results?search_query=express+js+crash+course",
+                    "El día más importante para tu stack. Es lo que pasa cuando tu código llama a una API y espera la respuesta. Promesas y async/await. Cuesta más que lo anterior: es normal releerlo 2-3 veces. Teclea ejemplos con setTimeout y mira cómo await cambia el orden de ejecución. Si se resiste, pártelo en dos sesiones — no lo fuerces.",
+                  url: "https://es.javascript.info/async-await",
                 },
                 {
-                  id: "jsn-6",
-                  titulo: "Laboratorio final: lee TU bandeja de punta a punta",
+                  id: "jsn-8",
+                  titulo: "Bloque 2 (~1h45): tu primer Node",
                   detalle:
-                    "Recorre el package.json, los require/import, las rutas, el servidor. ¿Dónde está el async/await? ¿Dónde escucha el PORT?",
+                    "Sales del navegador. Instala Node.js, corre tu primer script desde la terminal (node archivo.js), entiende qué es un módulo y para qué sirve npm. El mismo JavaScript que aprendiste, ahora del lado servidor.",
+                  url: "https://nodejs.org/es/learn/getting-started/introduction-to-nodejs",
+                },
+                {
+                  id: "jsn-9",
+                  titulo: "Bloque 3 (~1h15): cierre y reconócelo en tu código",
+                  detalle:
+                    "Abre una de tus bandejas e identifica lo aprendido: variables, funciones, objetos, los await, los require. CIERRE DÍA 3: ¿entiendes por qué await hace que el código espere? ¿Corriste un script con node desde la terminal? Si sí, ya tienes la base que 'Building with the Claude API' da por sentada.",
                   url: "",
+                },
+              ],
+            },
+            {
+              titulo: "Día 4 (opcional) · Node a fondo + Express",
+              lecciones: [
+                {
+                  id: "jsn-10",
+                  titulo: "Módulos, npm a fondo, archivos y un servidor mínimo",
+                  detalle:
+                    "Solo si los 3 días fluyeron. Módulos de Node, npm, leer/escribir archivos, y un servidor mínimo con Express: rutas, middleware, GET/POST. Aquí por fin entiendes qué hace el server.js que ya tienes desplegado. Si necesitaste más tiempo en asincronía, deja esto para retomar antes de APIs.",
+                  url: "https://www.youtube.com/results?search_query=express+js+crash+course+español",
                 },
               ],
             },
