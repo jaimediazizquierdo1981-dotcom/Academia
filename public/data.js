@@ -20,99 +20,78 @@ const ACADEMIA = {
           id: "js-node",
           titulo: "De JavaScript a Node.js",
           color: "#5FA869",
-          horas: "15 h (3 días × 5h)",
+          horas: "8–9 h",
           resumen:
-            "La base técnica de todo. El lenguaje (JavaScript) y el entorno que lo ejecuta en el servidor (Node). Una sola historia. Plan desde cero: video para entender + plataforma para teclear.",
+            "La base técnica de todo. El lenguaje (JavaScript) y el entorno que lo ejecuta en el servidor (Node). Una sola historia.",
           porque:
-            "Node ES JavaScript en el servidor. Tus bandejas son exactamente esto: JS corriendo en Node sobre Render. Domina JS puro primero y todo lo demás cae por su peso. Método: ver el concepto, teclearlo tú mismo, romperlo y arreglarlo. No copiar y pegar.",
+            "Node ES JavaScript en el servidor. Tus bandejas son exactamente esto: JS corriendo en Node sobre Render. Domina JS puro primero y todo lo demás cae por su peso.",
           bloques: [
             {
-              titulo: "Día 1 · JavaScript: fundamentos del lenguaje (5h)",
+              titulo: "Fase 1 · JavaScript — Día 1: Fundamentos del lenguaje",
               lecciones: [
                 {
                   id: "jsn-1",
-                  titulo: "Bloque 1 (~1h45): variables, tipos, operadores, condicionales",
+                  titulo: "Curso: Learn JavaScript with Clear Explanations (parte 1)",
                   detalle:
-                    "Abre la consola del navegador (F12 → Console). let/const, strings/números/booleanos, operadores (===, >, &&, ||), if/else. Teclea todo tú mismo: crea variables con tus datos, combina texto y números, haz comparaciones, y un if que decida 'adulto/menor' según una edad.",
-                  url: "https://aprendejavascript.dev/",
+                    "freeCodeCamp (Steven Garcia). Variables, tipos, operadores, condicionales, bucles, funciones, arrays y objetos.",
+                  url: "https://www.youtube.com/results?search_query=learn+javascript+clear+explanations+freecodecamp+steven+garcia",
                 },
+              ],
+            },
+            {
+              titulo: "Fase 1 · JavaScript — Día 2: Lo asíncrono",
+              lecciones: [
                 {
                   id: "jsn-2",
-                  titulo: "Bloque 2 (~1h45): bucles (for, while)",
+                  titulo: "Curso (parte 2) + foco en async/await",
                   detalle:
-                    "Repetir acciones. Teclea: imprime del 1 al 10; luego solo los pares. Lee y haz los ejercicios del mismo tema en es.javascript.info (tienen solución al final). Ciclo: ves el concepto en video → lo lees → lo tecleas → resuelves el ejercicio.",
-                  url: "https://es.javascript.info/",
+                    "Funciones flecha, métodos de array (map/filter/forEach), promesas, async/await, módulos (import/require). El corazón de tus bandejas.",
+                  url: "",
                 },
                 {
                   id: "jsn-3",
-                  titulo: "Bloque 3 (~1h15): práctica integradora",
+                  titulo: "Práctica: reconoce JS en tu propio código",
                   detalle:
-                    "Sin tema nuevo, solo consolidar. Mini-programa: una lista de edades y un bucle con condicional que diga quiénes son adultos. CIERRE DÍA 1: ¿puedes escribir sin copiar un programa que recorra una lista de números y muestre solo los mayores a 10? Si te trabas, repite el tema antes de avanzar.",
+                    "Abre una bandeja. Identifica variables, funciones, objetos, los await, los require. Cada cosa que reconozcas es un concepto vivo en tu app.",
                   url: "",
                 },
               ],
             },
             {
-              titulo: "Día 2 · JavaScript: funciones, arrays y objetos (5h)",
+              titulo: "Fase 2 · Node — Día 3: Fundamentos de Node.js",
               lecciones: [
                 {
                   id: "jsn-4",
-                  titulo: "Bloque 1 (~1h45): funciones",
+                  titulo: "Curso: Learn Node.js — Full Tutorial for Beginners",
                   detalle:
-                    "El corazón del lenguaje. Qué es una función, parámetros, return, y funciones flecha (=>), que verás por todo tu stack. Teclea: una función que sume dos números; otra que reciba un nombre y devuelva un saludo.",
-                  url: "https://es.javascript.info/function-basics",
+                    "freeCodeCamp. Qué es Node, módulos, eventos, file system, npm, package.json, servidor HTTP. (Cubierto en la práctica: async/await, fetch en Node, CommonJS vs ES Modules, leer/escribir archivos con fs.)",
+                  url: "https://www.youtube.com/results?search_query=learn+node.js+full+tutorial+beginners+freecodecamp",
                 },
+              ],
+            },
+            {
+              titulo: "Fase 2 · Node — Día 4: Express + tu backend",
+              lecciones: [
                 {
                   id: "jsn-5",
-                  titulo: "Bloque 2 (~1h45): arrays y objetos",
+                  titulo: "Express (crash course)",
                   detalle:
-                    "Arrays y sus métodos clave: map (transformar), filter (filtrar), forEach (recorrer). Objetos { nombre: 'Jaime', rol: 'CTO' }, la base de cómo viajan los datos en las APIs.",
-                  url: "https://es.javascript.info/array-methods",
+                    "El framework que organiza tu servidor: rutas, middleware, GET/POST. El esqueleto de tus bandejas. (Cubierto en la práctica: servidor Express, rutas, parámetros dinámicos, middleware express.json().)",
+                  url: "https://www.youtube.com/results?search_query=express+js+crash+course",
                 },
                 {
                   id: "jsn-6",
-                  titulo: "Bloque 3 (~1h15): práctica integradora (clasificador simulado)",
+                  titulo: "Laboratorio final: lee TU bandeja de punta a punta",
                   detalle:
-                    "Una lista de objetos (correos simulados con remitente y prioridad) y usa filter para quedarte con los urgentes y map para transformarlos. CIERRE DÍA 2: esto es la lógica exacta de tus clasificadores. Cuando lo logres sin copiar, entiendes por dentro algo que ya tienes funcionando.",
+                    "Recorre el package.json, los require/import, las rutas, el servidor. ¿Dónde está el async/await? ¿Dónde escucha el PORT?",
                   url: "",
                 },
-              ],
-            },
-            {
-              titulo: "Día 3 · Asincronía + arranque de Node (5h)",
-              lecciones: [
                 {
                   id: "jsn-7",
-                  titulo: "Bloque 1 (~1h45): asincronía (promesas, async/await)",
+                  titulo: "Extra logrado: API REST con CRUD sobre Postgres",
                   detalle:
-                    "El día más importante para tu stack. Es lo que pasa cuando tu código llama a una API y espera la respuesta. Promesas y async/await. Cuesta más que lo anterior: es normal releerlo 2-3 veces. Teclea ejemplos con setTimeout y mira cómo await cambia el orden de ejecución. Si se resiste, pártelo en dos sesiones — no lo fuerces.",
-                  url: "https://es.javascript.info/async-await",
-                },
-                {
-                  id: "jsn-8",
-                  titulo: "Bloque 2 (~1h45): tu primer Node",
-                  detalle:
-                    "Sales del navegador. Instala Node.js, corre tu primer script desde la terminal (node archivo.js), entiende qué es un módulo y para qué sirve npm. El mismo JavaScript que aprendiste, ahora del lado servidor.",
-                  url: "https://nodejs.org/es/learn/getting-started/introduction-to-nodejs",
-                },
-                {
-                  id: "jsn-9",
-                  titulo: "Bloque 3 (~1h15): cierre y reconócelo en tu código",
-                  detalle:
-                    "Abre una de tus bandejas e identifica lo aprendido: variables, funciones, objetos, los await, los require. CIERRE DÍA 3: ¿entiendes por qué await hace que el código espere? ¿Corriste un script con node desde la terminal? Si sí, ya tienes la base que 'Building with the Claude API' da por sentada.",
+                    "Más allá del plan original: construiste una API REST completa (GET/POST/PUT/DELETE) conectada a Postgres en Render. Pool, .env para secretos, SQL (CREATE/INSERT/SELECT/UPDATE/DELETE), parámetros seguros $1, y el WHERE como red de seguridad. Con esto entiendes tu server.js de la Academia por dentro.",
                   url: "",
-                },
-              ],
-            },
-            {
-              titulo: "Día 4 (opcional) · Node a fondo + Express",
-              lecciones: [
-                {
-                  id: "jsn-10",
-                  titulo: "Módulos, npm a fondo, archivos y un servidor mínimo",
-                  detalle:
-                    "Solo si los 3 días fluyeron. Módulos de Node, npm, leer/escribir archivos, y un servidor mínimo con Express: rutas, middleware, GET/POST. Aquí por fin entiendes qué hace el server.js que ya tienes desplegado. Si necesitaste más tiempo en asincronía, deja esto para retomar antes de APIs.",
-                  url: "https://www.youtube.com/results?search_query=express+js+crash+course+español",
                 },
               ],
             },
@@ -364,7 +343,70 @@ const ACADEMIA = {
             },
           ],
         },
-        // ---------- RUTA 6: n8n ----------
+        // ---------- RUTA 6: Python ----------
+        {
+          id: "python",
+          titulo: "Python desde cero",
+          color: "#3776AB",
+          horas: "12–18 h",
+          resumen:
+            "Tu segundo lenguaje. Apóyate en todo lo que ya sabes de JavaScript: los conceptos son los mismos, cambia la sintaxis. Puerta de entrada a datos, MCP y el curso de Anthropic.",
+          porque:
+            "El curso 'Building with the Claude API' y MCP usan Python. Además es el lenguaje del mundo de datos (Paquete 3). Con tu base de JS, aprenderlo es sobre todo traducir lo que ya entiendes.",
+          bloques: [
+            {
+              titulo: "Día 1: Fundamentos (lo mismo que JS, otra sintaxis)",
+              lecciones: [
+                {
+                  id: "py-1",
+                  titulo: "Curso: Python for Beginners (freeCodeCamp)",
+                  detalle:
+                    "Variables, tipos, condicionales, bucles, funciones, listas y diccionarios. Compáralo mentalmente con JS: var→sin var, {}→indentación, array→list, object→dict.",
+                  url: "https://www.youtube.com/results?search_query=python+for+beginners+freecodecamp",
+                },
+                {
+                  id: "py-2",
+                  titulo: "Práctica: traduce un script de JS a Python",
+                  detalle:
+                    "Toma algo simple que ya escribiste en JS (un bucle, una función) y reescríbelo en Python. Ver las dos versiones lado a lado fija la diferencia de sintaxis.",
+                  url: "",
+                },
+              ],
+            },
+            {
+              titulo: "Día 2: Lo asíncrono y peticiones (tu terreno conocido)",
+              lecciones: [
+                {
+                  id: "py-3",
+                  titulo: "Peticiones HTTP en Python (requests / httpx)",
+                  detalle:
+                    "El equivalente de fetch en Python. Consumir una API, parsear JSON. Lo mismo que ya dominas, con la librería de Python.",
+                  url: "",
+                },
+                {
+                  id: "py-4",
+                  titulo: "async/await en Python",
+                  detalle:
+                    "Sí, Python también tiene async/await. El concepto que ya entendiste aplica igual; solo cambia cómo se escribe.",
+                  url: "",
+                },
+              ],
+            },
+            {
+              titulo: "Día 3: Aplicar a tu stack",
+              lecciones: [
+                {
+                  id: "py-5",
+                  titulo: "Mini-proyecto: un script Python que use una API real",
+                  detalle:
+                    "Construye algo pequeño que consuma una API (Claude, o cualquiera con key). Prepara el terreno para 'Building with the Claude API' y MCP, que son en Python.",
+                  url: "",
+                },
+              ],
+            },
+          ],
+        },
+        // ---------- RUTA 7: n8n ----------
         {
           id: "n8n",
           titulo: "Dominar n8n",
