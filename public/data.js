@@ -456,6 +456,74 @@ const ACADEMIA = {
             },
           ],
         },
+        // ---------- RUTA 8: Scrum (CSM) ----------
+        {
+          id: "scrum",
+          titulo: "Certified ScrumMaster® (CSM)",
+          color: "#F0682D",
+          horas: "16 h (4 días × 4 h)",
+          resumen:
+            "Marco ágil Scrum: teoría, roles, eventos, artefactos y las competencias del Scrum Master. Curso de 4 días (4 h c/u) que cierra con el examen oficial de certificación. Certificación Scrum Alliance obtenida el 02 jul 2026 (válida hasta 02 jul 2028).",
+          porque:
+            "Refuerza tu lente de El Ejecutor (entrega ágil de equipos) y El Gestor de Conocimiento (credencial formal para tus cursos en PBS). Complementa tu ruta de certificaciones ágiles.",
+          bloques: [
+            {
+              titulo: "Día 1 · Teoría de Scrum",
+              lecciones: [
+                {
+                  id: "scrum-1",
+                  titulo: "Fundamentos del marco Scrum",
+                  detalle:
+                    "Scrum (definición corta y larga), elementos clave, valores de Scrum, proceso de control empírico, Scrum como marco de trabajo, y por qué requiere práctica dedicada.",
+                  url: "",
+                },
+              ],
+            },
+            {
+              titulo: "Día 2 · Roles en Scrum",
+              lecciones: [
+                {
+                  id: "scrum-2",
+                  titulo: "Los tres roles y sus responsabilidades",
+                  detalle:
+                    "Tamaño del equipo, los tres roles, derechos y responsabilidades del Product Owner, Scrum Master y Desarrollador. Características del equipo de desarrollo. El PO como una sola persona con la palabra final sobre el producto.",
+                  url: "",
+                },
+              ],
+            },
+            {
+              titulo: "Día 3 · Eventos de Scrum, Artefactos y Transparencia",
+              lecciones: [
+                {
+                  id: "scrum-3",
+                  titulo: "Eventos, artefactos y transparencia",
+                  detalle:
+                    "Inspección, adaptación y transparencia en los eventos. El Sprint y el Incremento. Sprint Planning, Daily Scrum, Sprint Review, Sprint Retrospective. Product Backlog, Sprint Backlog y Definición de Terminado.",
+                  url: "",
+                },
+              ],
+            },
+            {
+              titulo: "Día 4 · Competencias del Scrum Master + Examen",
+              lecciones: [
+                {
+                  id: "scrum-4",
+                  titulo: "El Scrum Master como líder-servicial",
+                  detalle:
+                    "Facilitación, coaching, y servir al equipo de desarrollo, al Product Owner y a la organización.",
+                  url: "",
+                },
+                {
+                  id: "scrum-5",
+                  titulo: "Examen oficial de certificación (Scrum Alliance)",
+                  detalle:
+                    "Cierre del curso: examen CSM de Scrum Alliance. Aprobado el 02 jul 2026. Certificación válida hasta 02 jul 2028.",
+                  url: "",
+                },
+              ],
+            },
+          ],
+        },
       ],
     },
     // ====== PAQUETES FUTUROS ======
