@@ -547,5 +547,178 @@ const ACADEMIA = {
       color: "#E0712F",
       rutas: [],
     },
+    // ====== PAQUETE 4: ESPECIALIZACIÓN / OTROS DOMINIOS ======
+    {
+      id: "p4",
+      numero: 4,
+      titulo: "Especialización / Otros dominios",
+      resumen:
+        "Temas que no son tu stack de construcción, pero que suman a tu perfil: seguridad y plataformas verticales de negocio.",
+      estado: "activo",
+      color: "#C0392B",
+      rutas: [
+        // ---------- RUTA 1: Ciberseguridad ----------
+        {
+          id: "ciberseguridad",
+          titulo: "Fundamentos de Ciberseguridad",
+          color: "#C0392B",
+          horas: "2–3 h",
+          resumen:
+            "Cybersecurity Foundations con Malcolm Shore (LinkedIn Learning). De amenazas y frameworks a incidentes, IA y ciberdiplomacia. Cierra con examen y certificado.",
+          porque:
+            "Construyes apps que tocan Gmail, Calendar, tokens OAuth y bases de datos en producción. Entender amenazas, frameworks (NIST/ISO) y manejo de incidentes deja de ser opcional cuando eres CTO y asesoras a otros.",
+          bloques: [
+            {
+              titulo: "Bloque 1 · Amenazas y frameworks",
+              lecciones: [
+                {
+                  id: "cyber-1",
+                  titulo: "Introduction",
+                  detalle:
+                    "Por qué la ciberseguridad es un requisito para todos: internet es tan esencial como la electricidad.",
+                  url: "",
+                },
+                {
+                  id: "cyber-2",
+                  titulo: "1. Cyber Threats",
+                  detalle:
+                    "El panorama de amenazas: actores, vectores de ataque y tipos de incidente.",
+                  url: "",
+                },
+                {
+                  id: "cyber-3",
+                  titulo: "2. Frameworks for Protection against Cyber Threats",
+                  detalle:
+                    "Frameworks y estándares de ciberseguridad (NIST, ISO 27001 y familia). El lenguaje común del sector.",
+                  url: "",
+                },
+              ],
+            },
+            {
+              titulo: "Bloque 2 · Operación: efectividad e incidentes",
+              lecciones: [
+                {
+                  id: "cyber-4",
+                  titulo: "3. Making Cybersecurity Effective",
+                  detalle:
+                    "Cómo se lleva la ciberseguridad de la teoría a controles que de verdad funcionan en una organización.",
+                  url: "",
+                },
+                {
+                  id: "cyber-5",
+                  titulo: "4. Detecting and Managing Cyber Incidents",
+                  detalle:
+                    "Detección, respuesta y gestión de incidentes. Qué hacer cuando ya pasó.",
+                  url: "",
+                },
+              ],
+            },
+            {
+              titulo: "Bloque 3 · Frontera: IA y diplomacia + Examen",
+              lecciones: [
+                {
+                  id: "cyber-6",
+                  titulo: "5. Cybersecurity and AI",
+                  detalle:
+                    "La IA como amenaza y como defensa. El cruce directo con tu trabajo diario.",
+                  url: "",
+                },
+                {
+                  id: "cyber-7",
+                  titulo: "6. Cyber Diplomacy",
+                  detalle:
+                    "La dimensión geopolítica y regulatoria de la ciberseguridad.",
+                  url: "",
+                },
+                {
+                  id: "cyber-8",
+                  titulo: "Conclusion + Examen final",
+                  detalle:
+                    "Cierre del curso y examen. Aprobarlo otorga el certificado de LinkedIn Learning.",
+                  url: "",
+                },
+              ],
+            },
+          ],
+        },
+        // ---------- RUTA 2: Oracle Simphony ----------
+        {
+          id: "simphony",
+          titulo: "Oracle Simphony (Level 1)",
+          color: "#E67E22",
+          horas: "5–6 h",
+          resumen:
+            "Beginners Symphony (Oracle University). El POS de Oracle para restaurantes y hospitalidad: arquitectura, ciclo de vida del proyecto, CAL, operación y EMC. Cierra con Final Assessment (≥80%).",
+          porque:
+            "Simphony es el POS de Oracle para restaurantes/hospitalidad. Conecta directo con tu background en Delosi (retail/restaurantes) y te da la plataforma vertical que otros solo conocen de oídas.",
+          bloques: [
+            {
+              titulo: "Bloque 1 · Fundamentos y arquitectura",
+              lecciones: [
+                {
+                  id: "simp-1",
+                  titulo: "Introduction & Simphony Overview (Level 1)",
+                  detalle:
+                    "Visión general del producto. Curso + Lab. 35 min.",
+                  url: "",
+                },
+                {
+                  id: "simp-2",
+                  titulo: "Introduction to Simphony Architecture & Shared Services",
+                  detalle:
+                    "Arquitectura del sistema y servicios compartidos. 17 min.",
+                  url: "",
+                },
+                {
+                  id: "simp-3",
+                  titulo: "Life Cycle of a Project",
+                  detalle:
+                    "Ciclo de vida de un proyecto de implementación Simphony. 34 min.",
+                  url: "",
+                },
+              ],
+            },
+            {
+              titulo: "Bloque 2 · Despliegue y operación",
+              lecciones: [
+                {
+                  id: "simp-4",
+                  titulo: "Client Application Loader (CAL)",
+                  detalle:
+                    "El componente más denso del path: despliegue de aplicaciones cliente. Curso + Lab + Skill Check. 2h 14min.",
+                  url: "",
+                },
+                {
+                  id: "simp-5",
+                  titulo: "Operator & Manager Functions",
+                  detalle:
+                    "Funciones de front of house: operador y manager. Curso + 2 Skill Checks. 1h 22min.",
+                  url: "",
+                },
+                {
+                  id: "simp-6",
+                  titulo: "EMC & Simphony Web Portal",
+                  detalle:
+                    "Enterprise Management Console y portal web: la consola de administración. Curso + Lab. 38 min.",
+                  url: "",
+                },
+              ],
+            },
+            {
+              titulo: "Bloque 3 · Certificación",
+              lecciones: [
+                {
+                  id: "simp-7",
+                  titulo: "Final Assessment (50 preguntas)",
+                  detalle:
+                    "Examen final del Level 1 Learning Path. Requiere 80% o más para aprobar y obtener la credencial.",
+                  url: "",
+                },
+              ],
+            },
+          ],
+        },
+      ],
+    },
   ],
 };
