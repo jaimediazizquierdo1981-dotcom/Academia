@@ -220,11 +220,11 @@ function parseSessions(lines) {
     prev = t;
   }
   return {
-    sessions: out.map((x) => ({ reunion: x.reunion, key: x.key, notes: x.notes.join(" ") })),
+    sessions: out.map((x) => ({ reunion: x.reunion, key: x.key, notes: x.notes.join("\n") })),
     fda: fda.map((x) => ({
       contexto: (x.contexto || "").replace(/^\(|\)$/g, "").trim(),
       titulo: x.titulo,
-      notas: x.notas.join(" "),
+      notas: x.notas.join("\n"),
       fecha: x.fecha,
     })),
   };

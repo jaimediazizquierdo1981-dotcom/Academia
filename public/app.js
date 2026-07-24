@@ -498,6 +498,27 @@ function bloqueHTML(b, color) {
       ${b.lecciones.map((l) => leccionHTML(l, color)).join("")}
     </div>`;
 }
+// Da formato profesional a las notas de Notion: encabezados, viñetas y notas.
+function formatNotion(text) {
+  const lines = String(text || "").split(/\n+/).map((s) => s.trim()).filter(Boolean);
+  if (!lines.length) return "<p>Pendiente de vincular.</p>";
+  let html = "", inList = false;
+  const closeList = () => { if (inList) { html += "</ul>"; inList = false; } };
+  lines.forEach((line) => {
+    const b = line.match(/^(?:\d+[.)]|[-•*])\s+(.*)$/);
+    if (b) {
+      if (!inList) { html += '<ul class="nlist">'; inList = true; }
+      html += `<li>${b[1]}</li>`;
+      return;
+    }
+    closeList();
+    if (/^nota\s*:/i.test(line)) html += `<p class="nnota">${line}</p>`;
+    else if (line.length <= 34 && !/[.,;]$/.test(line)) html += `<p class="nhead">${line}</p>`;
+    else html += `<p>${line}</p>`;
+  });
+  closeList();
+  return html;
+}
 function leccionHTML(l, color) {
   // Ítems "no aplica" (feriados / por planificar): no marcables
   if (l.na) {
@@ -526,7 +547,7 @@ function leccionHTML(l, color) {
         <div class="ev-file">📎 <span>${e.file}</span>${e.ruta ? `<span class="ev-path">${e.ruta}</span>` : ""}</div>
         <div class="ev-box arch"><b>📄 Del archivo</b><p>${e.arch && e.arch.trim() ? e.arch : "Pendiente de vincular."}</p></div>
       </div>`).join("");
-    const noti = `<div class="ev-box noti"><b>📝 Mis notas · Notion</b><p>${l.noti && l.noti.trim() ? l.noti : "Pendiente de vincular."}</p></div>`;
+    const noti = `<div class="ev-box noti"><b>📝 Mis notas · Notion</b>${l.noti && l.noti.trim() ? formatNotion(l.noti) : "<p>Pendiente de vincular.</p>"}</div>`;
     ev = `<div class="ev">${filesHTML}${noti}</div>`;
   }
 

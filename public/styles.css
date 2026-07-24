@@ -179,7 +179,12 @@ footer{margin-top:2.6rem;padding-top:1.3rem;border-top:1px solid var(--line);
 .ev-box b{display:block;font-size:.68rem;text-transform:uppercase;letter-spacing:.05em;margin-bottom:.35rem;font-weight:700}
 .ev-box.arch b{color:#7fb0ff}
 .ev-box.noti b{color:#c4b5fd}
-.ev-box p{margin:0;font-size:.8rem;color:var(--muted);line-height:1.5}
+.ev-box p{margin:.15rem 0;font-size:.8rem;color:var(--muted);line-height:1.5}
+.ev-box .nhead{font-weight:700;color:var(--ink);font-size:.82rem;margin:.55rem 0 .15rem}
+.ev-box .nhead:first-child{margin-top:0}
+.ev-box .nlist{margin:.15rem 0 .35rem 1.1rem;padding:0}
+.ev-box .nlist li{font-size:.8rem;color:var(--muted);line-height:1.5;margin:.1rem 0}
+.ev-box .nnota{color:#c4b5fd;font-style:italic}
 @media (max-width:560px){ .selector{grid-template-columns:1fr} .ev-syn{grid-template-columns:1fr} }
 
 /* ítem no marcable (feriado / por planificar) */
