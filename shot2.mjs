@@ -1,0 +1,14 @@
+import { chromium } from 'playwright';
+const BASE='http://localhost:3111';
+const b=await chromium.launch({executablePath:'/opt/pw-browsers/chromium-1194/chrome-linux/chrome'});
+const ctx=await b.newContext({viewport:{width:900,height:620},deviceScaleFactor:2});
+await ctx.request.post(BASE+'/api/login',{data:{password:'test123'}});
+const p=await ctx.newPage();
+const errs=[]; p.on('pageerror',e=>errs.push(e.message));
+await p.goto(BASE+'/',{waitUntil:'networkidle'});
+await p.click('#mundo-onboarding'); await p.waitForSelector('.route');
+await p.click('#route-onb-extra'); await p.waitForSelector('.leccion');
+await p.waitForTimeout(250);
+await p.screenshot({path:'/tmp/extra.png',fullPage:true});
+console.log('errores:', errs.length?errs:'NINGUNO');
+await b.close();

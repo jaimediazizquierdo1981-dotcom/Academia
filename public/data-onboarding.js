@@ -217,7 +217,7 @@ const ONBOARDING = {
               id: "onb-extra-1",
               titulo: "Salud, Seguridad y Servicios Generales",
               persona: "Sonia",
-              reunion: "Fuera de agenda",
+              dia: "Lun 20 jul",
               evidencia: { file: "Procesos básicos Salud, Seguridad y Servicios Generales .pdf", ruta: FUENTES + "Procesos básicos Salud, Seguridad y Servicios Generales .pdf" },
               arch: "Organigrama del equipo de Salud, Seguridad y Servicios Generales, con cuatro frentes y responsables: Servicios Generales (fotocheck, huella, estacionamiento, reserva de salas, uniformes, facturas, pasajes) — Mevil Aljovin, Jessica Villanueva, Jerutza Godoy; Salud Ocupacional (altas médicas por accidente, EMO, madre gestante, salud mental, diversidad, plantas) — Edison Urquizo, Hilda La Torre; Bienestar Social (descansos médicos, subsidios, licencias con goce, EPS/Seguro Social/SCTR) — Gianella Baldeón, Kiavet Ramírez; Seguridad y Salud en el Trabajo (procedimientos SST, investigación de accidentes, IPERC, EPPs, capacitaciones, SUNAFIL, canal ético) — Katy Flores, Génesis Bolívar, Tania Espinoza, Sebastián Faucheux, Mafer Rengifo.",
               noti: ""

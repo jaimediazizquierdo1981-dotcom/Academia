@@ -165,6 +165,7 @@ footer{margin-top:2.6rem;padding-top:1.3rem;border-top:1px solid var(--line);
 .lec-metaline{display:flex;flex-wrap:wrap;gap:.5rem .9rem;margin-top:.35rem}
 .lec-meta{font-size:.82rem;color:var(--muted)}
 .lec-meta.reu{color:#c4b5fd;font-style:italic}
+.lec-meta.dia{color:#f0c869;font-weight:600}
 .ev{margin-top:.7rem;border-top:1px dashed var(--line);padding-top:.7rem}
 .ev-file{display:inline-flex;align-items:center;gap:.5rem;flex-wrap:wrap;
   background:var(--panel-2);border:1px solid var(--line);border-radius:8px;

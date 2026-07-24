@@ -389,6 +389,7 @@ function leccionHTML(l, color) {
   // meta de onboarding: persona + (reunión)
   const meta = [];
   if (l.persona) meta.push(`<span class="lec-meta">👤 ${l.persona}</span>`);
+  if (l.dia) meta.push(`<span class="lec-meta dia">📅 ${l.dia}</span>`);
   if (l.reunion) meta.push(`<span class="lec-meta reu">🗓️ (${l.reunion})</span>`);
   const metaline = meta.length ? `<div class="lec-metaline">${meta.join("")}</div>` : "";
 
