@@ -155,7 +155,7 @@ function vistaInicio() {
         ${Object.values(MUNDOS).map((m) => mundoCard(m)).join("")}
       </div>
     </div>`;
-  document.getElementById("logoutBtn").addEventListener("click", logout);
+  document.getElementById("logoutBtn").addEventListener("click", confirmarCerrarSesion);
   Object.values(MUNDOS).forEach((m) => {
     const el = document.getElementById(`mundo-${m.key}`);
     if (el) el.addEventListener("click", () => { MUNDO = m; vistaPanel(); });
@@ -271,7 +271,7 @@ function vistaPanel() {
       ${onb ? "" : footerHTML()}
     </div>`;
 
-  document.getElementById("logoutBtn").addEventListener("click", logout);
+  document.getElementById("logoutBtn").addEventListener("click", confirmarCerrarSesion);
   document.getElementById("cambiarBtn").addEventListener("click", vistaInicio);
   const nb = document.getElementById("notionBtn");
   if (nb) nb.addEventListener("click", actualizarDesdeNotion);
@@ -562,6 +562,23 @@ function modalSalida() {
     try { navigator.sendBeacon("/api/logout"); } catch (e) {}
     history.back(); // sale de verdad al sitio anterior (y se cierra sesión)
   };
+}
+function confirmarCerrarSesion() {
+  if (document.querySelector(".modal-salida")) return;
+  const ov = document.createElement("div");
+  ov.className = "modal-salida";
+  ov.innerHTML = `
+    <div class="modal-card">
+      <h3>¿Cerrar sesión?</h3>
+      <p>Tendrás que ingresar tu clave de nuevo para volver a entrar.</p>
+      <div class="modal-btns">
+        <button class="mbtn ghost" id="mCancel">Cancelar</button>
+        <button class="mbtn danger" id="mOut">Cerrar sesión</button>
+      </div>
+    </div>`;
+  document.body.appendChild(ov);
+  document.getElementById("mCancel").onclick = () => ov.remove();
+  document.getElementById("mOut").onclick = () => { ov.remove(); logout(); };
 }
 function armarSeguridad() {
   ["mousemove", "mousedown", "keydown", "scroll", "touchstart", "click"].forEach((ev) =>
