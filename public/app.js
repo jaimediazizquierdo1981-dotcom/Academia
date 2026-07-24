@@ -513,7 +513,7 @@ function formatNotion(text) {
     }
     closeList();
     if (/^nota\s*:/i.test(line)) html += `<p class="nnota">${line}</p>`;
-    else if (line.length <= 34 && !/[.,;]$/.test(line)) html += `<p class="nhead">${line}</p>`;
+    else if (line.length <= 32 && !/[.,;]$/.test(line) && !/[-—\/:()0-9]/.test(line)) html += `<p class="nhead">${line}</p>`;
     else html += `<p>${line}</p>`;
   });
   closeList();
