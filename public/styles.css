@@ -141,3 +141,44 @@ footer{margin-top:2.6rem;padding-top:1.3rem;border-top:1px solid var(--line);
   .stats{grid-template-columns:1fr;gap:.5rem}
   .stat{display:flex;align-items:baseline;gap:.6rem}
 }
+
+/* ===== SELECTOR DE INICIO (Aprendizaje / Onboarding) ===== */
+.top-actions{display:flex;gap:.5rem;align-items:center}
+.back.mini{margin-bottom:0;padding:7px 12px;font-size:.76rem}
+.selector{display:grid;grid-template-columns:repeat(2,1fr);gap:1.1rem;margin-top:.5rem}
+.mundo{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);
+  padding:1.6rem 1.5rem;cursor:pointer;position:relative;overflow:hidden;
+  transition:border-color .2s, transform .1s;display:flex;flex-direction:column;gap:1rem;min-height:190px}
+.mundo::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--mc,var(--accent))}
+.mundo:hover{border-color:var(--mc,var(--accent));transform:translateY(-2px)}
+.mundo-ic{font-size:2rem;line-height:1;width:56px;height:56px;display:grid;place-items:center;
+  background:var(--panel-2);border-radius:14px}
+.mundo-body{flex:1}
+.mundo-body h3{margin:0 0 .3rem;font-size:1.3rem;letter-spacing:-.01em}
+.mundo-body p{margin:0;color:var(--muted);font-size:.9rem}
+.mundo-foot{display:flex;align-items:center;gap:.8rem}
+.mundo-bar{flex:1;height:7px;background:var(--panel-2);border-radius:99px;overflow:hidden}
+.mundo-bar > i{display:block;height:100%;background:var(--mc,var(--accent));width:0;transition:width .4s}
+.mundo-foot span{font-family:ui-monospace,monospace;font-size:.78rem;color:var(--muted);white-space:nowrap}
+
+/* ===== ONBOARDING: meta y evidencia de la actividad ===== */
+.lec-metaline{display:flex;flex-wrap:wrap;gap:.5rem .9rem;margin-top:.35rem}
+.lec-meta{font-size:.82rem;color:var(--muted)}
+.lec-meta.reu{color:#c4b5fd;font-style:italic}
+.ev{margin-top:.7rem;border-top:1px dashed var(--line);padding-top:.7rem}
+.ev-file{display:inline-flex;align-items:center;gap:.5rem;flex-wrap:wrap;
+  background:var(--panel-2);border:1px solid var(--line);border-radius:8px;
+  padding:5px 10px;font-size:.78rem;color:#9ec5ff;font-weight:600;margin-bottom:.6rem}
+.ev-file .ev-path{color:var(--muted);font-weight:400;font-size:.68rem;font-family:ui-monospace,monospace;word-break:break-all}
+.ev-syn{display:grid;grid-template-columns:1fr 1fr;gap:.6rem}
+.ev-box{background:var(--panel-2);border:1px solid var(--line);border-radius:9px;padding:.6rem .75rem}
+.ev-box b{display:block;font-size:.68rem;text-transform:uppercase;letter-spacing:.05em;margin-bottom:.35rem;font-weight:700}
+.ev-box.arch b{color:#7fb0ff}
+.ev-box.noti b{color:#c4b5fd}
+.ev-box p{margin:0;font-size:.8rem;color:var(--muted);line-height:1.5}
+@media (max-width:560px){ .selector{grid-template-columns:1fr} .ev-syn{grid-template-columns:1fr} }
+
+/* ítem no marcable (feriado / por planificar) */
+.leccion.na{opacity:.5;border-style:dashed;background:transparent}
+.leccion.na .lec-title{font-weight:500;color:var(--muted)}
+.bloque.feriado .bloque-title{color:var(--muted);opacity:.75}
