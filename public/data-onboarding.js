@@ -232,7 +232,7 @@ const ONBOARDING = {
               titulo: "Salud, Seguridad y Servicios Generales",
               persona: "Sonia",
               dia: "Lun 20 jul",
-              notionKey: "Fuera de agenda",
+              notionKey: "Servicios Generales",
               evidencias: [
                 {
                   file: "Procesos básicos Salud, Seguridad y Servicios Generales .pdf",
@@ -241,6 +241,14 @@ const ONBOARDING = {
                 }
               ],
               noti: ""
+            },
+            {
+              id: "onb-extra-2",
+              titulo: "Reunión Libélula y Kioskos",
+              persona: "Julio, Andrea y Álvaro",
+              dia: "Jue 24 jul",
+              notionKey: "Libélula Kioskos",
+              noti: "Reunión sobre los proyectos Libélula (POS/Simphony) y Kioskos, mapeando proveedores. LIBÉLULA — Proveedores: Oracle (POS), Applying (API), Ofisistemas (extensibility), Conastec (extensibility), CGLL (implementadores Oracle Simphony). Oracle (Mónica): confirmará el detalle del ingreso al e-learning; validar posible migración a Conastec; cerrar lo pendiente con Ofisistemas; confirmarán el tema de Kioskos. Conastec (Eli): experiencia limitada, pero es una alternativa a conversar la próxima semana. Ofisistemas (Orlando): sin problemas de capacidad; el problema fue el tipo de impresoras. Applying: necesita visibilidad del paquete completo de solicitudes; pueden trabajar Simphony y Kioskos en paralelo; piden reunión de alineamiento. KIOSKOS — Cash Control: Applying (API), Synerpost/Assa (app y hardware). Assa (Angie Ureta): puede manejar los kioskos con Invoice desde el mismo kiosko; revisar contratos mensuales (reunión Julio Rivas / Angie Ureta). Trade: Trade (software), Trig (hardware)."
             }
           ]
         }
