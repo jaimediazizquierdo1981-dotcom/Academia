@@ -246,7 +246,7 @@ const ONBOARDING = {
               id: "onb-extra-2",
               titulo: "Reunión Libélula y Kioskos",
               persona: "Julio, Andrea y Álvaro",
-              dia: "Jue 24 jul",
+              dia: "Vie 24 jul",
               notionKey: "Libélula Kioskos",
               noti: "Objetivo: mapear proveedores de los proyectos Libélula (POS/Simphony) y Kioskos.\nLibélula · Proveedores\n1. Oracle — POS\n2. Applying — API\n3. Ofisistemas — Extensibility\n4. Conastec — Extensibility\n5. CGLL — Implementadores Oracle Simphony\nNota: Oracle (Mónica) confirmará el ingreso al e-learning; validar posible migración a Conastec; cerrar lo pendiente con Ofisistemas.\nConastec (Eli): experiencia limitada, alternativa a evaluar la próxima semana.\nOfisistemas (Orlando): sin problemas de capacidad; la limitante fue el tipo de impresoras.\nApplying: necesita visibilidad del paquete completo; puede ejecutar Simphony y Kioskos en paralelo; solicita reunión de alineamiento.\nKioskos · Cash Control\n1. Applying — API\n2. Synerpost / Assa — App y Hardware\nNota: Assa (Angie Ureta) puede operar los kioskos con Invoice desde el mismo equipo; evaluar contratos mensuales (reunión Julio Rivas / Angie Ureta).\nKioskos · Trade\n1. Trade — Software\n2. Trig — Hardware"
             }
