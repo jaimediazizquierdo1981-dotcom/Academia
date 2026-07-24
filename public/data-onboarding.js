@@ -49,8 +49,18 @@ const ONBOARDING = {
               titulo: "Inducción corporativa",
               persona: "Lorena y Maya",
               reunion: "Inducción corporativa (Lore + Maya) · RRHH",
-              evidencia: { file: "Explicación Estructura NGR.jpeg", ruta: FUENTES + "Explicación Estructura NGR.jpeg" },
-              arch: "Pizarra con el organigrama de NGR bajo el CEO: HR (BB), FM (DD/PJ) y AP (PP/CW/DB); Marketing (Categorías, Brand/ECO, Canales Digitales); GDP (GDT, Clima/Cultura, Entrenamiento); y Operaciones por niveles de tienda: JO, Supervisor, Gerente de Tienda (T1), Asistente (T2), Líder de Turno (T3), Team Member (T4–T5) y OP Servicio. (Complemento: tu boceto a mano «Inducción NGR_260720_102908.pdf» y el deck «Inducción corporativa NGR 2026 - ABRIL.pdf» de Maya, por vincular).",
+              evidencias: [
+                {
+                  file: "Explicación Estructura NGR.jpeg",
+                  ruta: FUENTES + "Explicación Estructura NGR.jpeg",
+                  arch: "Pizarra con el organigrama de NGR bajo el CEO: HR (BB), FM (DD/PJ) y AP (PP/CW/DB); Marketing (Categorías, Brand/ECO, Canales Digitales); GDP (GDT, Clima/Cultura, Entrenamiento); y Operaciones por niveles de tienda: JO, Supervisor, Gerente de Tienda (T1), Asistente (T2), Líder de Turno (T3), Team Member (T4–T5) y OP Servicio."
+                },
+                {
+                  file: "Inducción corporativa NGR 2026 - ABRIL.pdf",
+                  ruta: FUENTES + "Inducción corporativa NGR 2026 - ABRIL.pdf",
+                  arch: "Deck oficial de inducción (66 láminas). NGR: holding gastronómico de 6 marcas, +14 años, +8,000 colaboradores y +400 locales en 17 ciudades; sedes: 3 plantas, Call Center, Delivery Central y oficinas. Parte de Intercorp (1 grupo, +30 empresas, +101,176 colaboradores, 12 países), en la plataforma de Entretenimiento y Hospitalidad (con Casa Andina, Cineplanet y La Tinka; jefe de plataforma: Carlos Arce). Propósito: «Creamos experiencias que conectan y hacen la vida más feliz, entretenida y emocionante». Gerencia General NGR: Johanna Inti. Comité Directivo (útil para tus one-to-ones): Andrea Pardo (Sistemas), Ana Rosa Aguirre (Adm. y Finanzas/DAF), Nikitza Ivankovich (Supply Chain, Delivery Center y Desarrollo de Productos), Sandra Merino (Comercial y Marketing), Flavio Gutiérrez (Infraestructura y Mantenimiento), Lorena Arizmendi (Gestión y Desarrollo Humano), Rafael Alegría. Cultura: valores NGR (servicio, curiosidad/humildad, cuidado al detalle, perseverancia, mejora continua); programas de bienestar y salud (EPS, descansos médicos); «Cuenta Tres» (prevención de hostigamiento, diversidad e inclusión, equidad de género) con políticas de igualdad y no discriminación; y responsabilidad social e inserción laboral."
+                }
+              ],
               noti: "NGR es la plataforma de entretenimiento y hospitalidad de Intercorp (1 grupo, ~30 empresas). ~8,000 colaboradores, 14 años, ~400 tiendas en 17 locales. Cultura centrada en las personas (Great Place to Work). Cross con Cineplanet, Casa Andina y La Tinka; Delia Bustamante (cross). Áreas: Compras, Auditoría, Procesos, Asuntos Corporativos. Pendiente: pedir el video a Maya."
             },
             {
@@ -218,8 +228,13 @@ const ONBOARDING = {
               titulo: "Salud, Seguridad y Servicios Generales",
               persona: "Sonia",
               dia: "Lun 20 jul",
-              evidencia: { file: "Procesos básicos Salud, Seguridad y Servicios Generales .pdf", ruta: FUENTES + "Procesos básicos Salud, Seguridad y Servicios Generales .pdf" },
-              arch: "Organigrama del equipo de Salud, Seguridad y Servicios Generales, con cuatro frentes y responsables: Servicios Generales (fotocheck, huella, estacionamiento, reserva de salas, uniformes, facturas, pasajes) — Mevil Aljovin, Jessica Villanueva, Jerutza Godoy; Salud Ocupacional (altas médicas por accidente, EMO, madre gestante, salud mental, diversidad, plantas) — Edison Urquizo, Hilda La Torre; Bienestar Social (descansos médicos, subsidios, licencias con goce, EPS/Seguro Social/SCTR) — Gianella Baldeón, Kiavet Ramírez; Seguridad y Salud en el Trabajo (procedimientos SST, investigación de accidentes, IPERC, EPPs, capacitaciones, SUNAFIL, canal ético) — Katy Flores, Génesis Bolívar, Tania Espinoza, Sebastián Faucheux, Mafer Rengifo.",
+              evidencias: [
+                {
+                  file: "Procesos básicos Salud, Seguridad y Servicios Generales .pdf",
+                  ruta: FUENTES + "Procesos básicos Salud, Seguridad y Servicios Generales .pdf",
+                  arch: "Organigrama del equipo de Salud, Seguridad y Servicios Generales, con cuatro frentes y responsables: Servicios Generales (fotocheck, huella, estacionamiento, reserva de salas, uniformes, facturas, pasajes) — Mevil Aljovin, Jessica Villanueva, Jerutza Godoy; Salud Ocupacional (altas médicas por accidente, EMO, madre gestante, salud mental, diversidad, plantas) — Edison Urquizo, Hilda La Torre; Bienestar Social (descansos médicos, subsidios, licencias con goce, EPS/Seguro Social/SCTR) — Gianella Baldeón, Kiavet Ramírez; Seguridad y Salud en el Trabajo (procedimientos SST, investigación de accidentes, IPERC, EPPs, capacitaciones, SUNAFIL, canal ético) — Katy Flores, Génesis Bolívar, Tania Espinoza, Sebastián Faucheux, Mafer Rengifo."
+                }
+              ],
               noti: ""
             }
           ]

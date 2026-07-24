@@ -393,15 +393,20 @@ function leccionHTML(l, color) {
   if (l.reunion) meta.push(`<span class="lec-meta reu">🗓️ (${l.reunion})</span>`);
   const metaline = meta.length ? `<div class="lec-metaline">${meta.join("")}</div>` : "";
 
-  // bloque de evidencia (archivo de Fuentes + síntesis + notas de Notion)
+  // bloque de evidencia: una reunión puede tener VARIOS archivos, cada uno
+  // con su propia síntesis; más una sola síntesis de tus notas de Notion.
   let ev = "";
-  if (l.evidencia || l.arch || (l.noti !== undefined)) {
-    const file = l.evidencia
-      ? `<div class="ev-file">📎 <span>${l.evidencia.file}</span>${l.evidencia.ruta ? `<span class="ev-path">${l.evidencia.ruta}</span>` : ""}</div>`
-      : "";
-    const arch = `<div class="ev-box arch"><b>📄 Del archivo</b><p>${l.arch && l.arch.trim() ? l.arch : "Pendiente de vincular."}</p></div>`;
+  const evs = l.evidencias
+    ? l.evidencias
+    : (l.evidencia ? [{ file: l.evidencia.file, ruta: l.evidencia.ruta, arch: l.arch }] : []);
+  if (evs.length || l.noti !== undefined) {
+    const filesHTML = evs.map((e) => `
+      <div class="ev-item">
+        <div class="ev-file">📎 <span>${e.file}</span>${e.ruta ? `<span class="ev-path">${e.ruta}</span>` : ""}</div>
+        <div class="ev-box arch"><b>📄 Del archivo</b><p>${e.arch && e.arch.trim() ? e.arch : "Pendiente de vincular."}</p></div>
+      </div>`).join("");
     const noti = `<div class="ev-box noti"><b>📝 Mis notas · Notion</b><p>${l.noti && l.noti.trim() ? l.noti : "Pendiente de vincular."}</p></div>`;
-    ev = `<div class="ev">${file}<div class="ev-syn">${arch}${noti}</div></div>`;
+    ev = `<div class="ev">${filesHTML}${noti}</div>`;
   }
 
   return `
