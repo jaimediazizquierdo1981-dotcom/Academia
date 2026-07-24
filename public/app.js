@@ -570,12 +570,8 @@ function armarSeguridad() {
   // Trampa del botón "atrás": muestra el aviso en vez de salir directo
   history.pushState({ trap: 1 }, "", location.href);
   window.addEventListener("popstate", modalSalida);
-  // Cerrar pestaña / recargar / navegar fuera: avisa y cierra sesión
-  window.addEventListener("beforeunload", (e) => {
-    if (saliendo) return;
-    e.preventDefault();
-    e.returnValue = "";
-  });
+  // Cerrar pestaña / recargar / navegar fuera: cierra la sesión en silencio
+  // (el navegador no permite mostrar un aviso propio en ese momento).
   window.addEventListener("pagehide", () => { try { navigator.sendBeacon("/api/logout"); } catch (e) {} });
 }
 
