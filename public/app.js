@@ -523,9 +523,66 @@ function leccionHTML(l, color) {
 }
 
 // ============================================================
+//  SEGURIDAD DE SESIÓN: inactividad (15 min) + aviso de salida
+// ============================================================
+const IDLE_MS = 15 * 60 * 1000; // 15 minutos
+let idleTimer = null;
+let saliendo = false;
+
+function cerrarSesionPorInactividad() {
+  saliendo = true;
+  try { navigator.sendBeacon("/api/logout"); } catch (e) {}
+  window.location.href = "/login.html?m=idle";
+}
+function resetIdle() {
+  clearTimeout(idleTimer);
+  idleTimer = setTimeout(cerrarSesionPorInactividad, IDLE_MS);
+}
+function modalSalida() {
+  if (document.querySelector(".modal-salida")) return;
+  const ov = document.createElement("div");
+  ov.className = "modal-salida";
+  ov.innerHTML = `
+    <div class="modal-card">
+      <h3>Estás saliendo de la aplicación</h3>
+      <p>Si sales, se cerrará tu sesión y tendrás que ingresar tu clave otra vez.</p>
+      <div class="modal-btns">
+        <button class="mbtn ghost" id="mStay">Quedarme</button>
+        <button class="mbtn danger" id="mLeave">Salir y cerrar sesión</button>
+      </div>
+    </div>`;
+  document.body.appendChild(ov);
+  document.getElementById("mStay").onclick = () => {
+    ov.remove();
+    history.pushState({ trap: 1 }, "", location.href); // re-arma la trampa
+  };
+  document.getElementById("mLeave").onclick = () => {
+    ov.remove();
+    saliendo = true;
+    try { navigator.sendBeacon("/api/logout"); } catch (e) {}
+    history.back(); // sale de verdad al sitio anterior (y se cierra sesión)
+  };
+}
+function armarSeguridad() {
+  ["mousemove", "mousedown", "keydown", "scroll", "touchstart", "click"].forEach((ev) =>
+    window.addEventListener(ev, resetIdle, { passive: true }));
+  resetIdle();
+  // Trampa del botón "atrás": muestra el aviso en vez de salir directo
+  history.pushState({ trap: 1 }, "", location.href);
+  window.addEventListener("popstate", modalSalida);
+  // Cerrar pestaña / recargar / navegar fuera: avisa y cierra sesión
+  window.addEventListener("beforeunload", (e) => {
+    if (saliendo) return;
+    e.preventDefault();
+    e.returnValue = "";
+  });
+  window.addEventListener("pagehide", () => { try { navigator.sendBeacon("/api/logout"); } catch (e) {} });
+}
+
+// ============================================================
 //  ARRANQUE
 // ============================================================
 (async function init() {
   const ok = await cargarProgreso();
-  if (ok) vistaInicio(); // primero el selector Aprendizaje / Onboarding
+  if (ok) { vistaInicio(); armarSeguridad(); } // selector + seguridad de sesión
 })();

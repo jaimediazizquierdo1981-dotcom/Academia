@@ -36,6 +36,8 @@
   button:disabled{opacity:.6;cursor:default}
   .err{color:var(--err);font-size:.84rem;margin-top:.8rem;min-height:1.1em}
   .foot{margin-top:1.6rem;font-size:.74rem;color:var(--muted);text-align:center;line-height:1.5}
+  .aviso{background:#6E8BFF15;border:1px solid #6E8BFF40;color:#b9c6ff;font-size:.82rem;
+    padding:.6rem .8rem;border-radius:9px;margin:0 0 1.1rem;line-height:1.4}
 
   /* ===== Personajes pixel art en los costados ===== */
   .mascota{position:relative;flex-shrink:0;display:flex;flex-direction:column;
@@ -83,6 +85,7 @@
       <p class="badge">Academia personal</p>
       <h1>Centro de aprendizaje</h1>
       <p class="sub">Ingresa tu clave para acceder a tus rutas y progreso.</p>
+      <div class="aviso" id="aviso" style="display:none"></div>
       <label for="pw">Clave de acceso</label>
       <input type="password" id="pw" autocomplete="current-password" placeholder="********" autofocus>
       <button id="btn">Entrar</button>
@@ -147,6 +150,18 @@
   }
   btn.addEventListener('click', entrar);
   pw.addEventListener('keydown', e=>{ if(e.key==='Enter') entrar(); });
+  // Aviso según por qué se cerró la sesión (?m=idle | salida)
+  (function(){
+    const m = new URLSearchParams(location.search).get('m');
+    if(!m) return;
+    const av = document.getElementById('aviso');
+    av.textContent = m === 'idle'
+      ? 'Tu sesión se cerró por inactividad (15 minutos). Ingresa tu clave de nuevo.'
+      : m === 'salida'
+      ? 'Saliste de la aplicación y se cerró tu sesión. Ingresa para volver.'
+      : 'Tu sesión se cerró. Ingresa de nuevo.';
+    av.style.display = 'block';
+  })();
 </script>
 </body>
 </html>

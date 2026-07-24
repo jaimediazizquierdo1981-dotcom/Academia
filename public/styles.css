@@ -210,3 +210,14 @@ footer{margin-top:2.6rem;padding-top:1.3rem;border-top:1px solid var(--line);
   background:#1b2130;border:1px solid var(--line);color:var(--ink);padding:10px 18px;border-radius:10px;
   font-size:.86rem;box-shadow:0 10px 30px rgba(0,0,0,.45);opacity:0;transition:.25s ease;z-index:1000;pointer-events:none}
 .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+.modal-salida{position:fixed;inset:0;background:rgba(5,7,14,.72);display:grid;place-items:center;z-index:2000;padding:1.2rem}
+.modal-card{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:1.6rem 1.7rem;
+  max-width:400px;width:100%;box-shadow:0 20px 60px rgba(0,0,0,.5)}
+.modal-card h3{margin:0 0 .5rem;font-size:1.2rem}
+.modal-card p{margin:0 0 1.3rem;color:var(--muted);font-size:.9rem;line-height:1.5}
+.modal-btns{display:flex;gap:.7rem;justify-content:flex-end;flex-wrap:wrap}
+.mbtn{border:1px solid var(--line);border-radius:9px;padding:.6rem 1rem;font-size:.86rem;cursor:pointer;font-weight:600}
+.mbtn.ghost{background:transparent;color:var(--ink)}
+.mbtn.ghost:hover{border-color:var(--accent)}
+.mbtn.danger{background:#E0605F;border-color:#E0605F;color:#fff}
+.mbtn.danger:hover{filter:brightness(1.05)}

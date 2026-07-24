@@ -66,8 +66,9 @@ app.use(
     secret: SESSION_SECRET,
     resave: false,
     saveUninitialized: false,
+    rolling: true, // renueva la expiración en cada request (mientras haya actividad)
     cookie: {
-      maxAge: 1000 * 60 * 60 * 24 * 30, // 30 días
+      maxAge: 1000 * 60 * 15, // 15 min de inactividad → la sesión caduca
       httpOnly: true,
       sameSite: "lax",
     },
