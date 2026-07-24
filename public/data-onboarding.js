@@ -129,9 +129,7 @@ const ONBOARDING = {
         {
           titulo: "Viernes 24",
           lecciones: [
-            { id: "onb-s1-24-1", titulo: "Visita Popeyes", persona: "Gissela (GU)", reunion: "Visita Popeyes · Tienda TBD · Almuerzo en tienda" },
-            { id: "onb-s1-24-2", titulo: "One-to-one con Andrea P", persona: "Andrea Pardo (Sistemas)", reunion: "Durante el almuerzo" },
-            { id: "onb-s1-24-3", titulo: "Popeyes con Simphony aplicado", persona: "Andrea Pardo (Sistemas)", reunion: "Ejemplo Libélula · procesos y desafíos operativos" }
+            { id: "onb-s1-24-1", titulo: "Visita Popeyes", persona: "Gissela (GU)", reunion: "Visita Popeyes · Tienda TBD · Almuerzo en tienda" }
           ]
         }
       ]
