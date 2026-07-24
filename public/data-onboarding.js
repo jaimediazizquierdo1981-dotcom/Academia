@@ -62,7 +62,7 @@ const ONBOARDING = {
                   arch: "Deck oficial de inducción (66 láminas). NGR: holding gastronómico de 6 marcas, +14 años, +8,000 colaboradores y +400 locales en 17 ciudades; sedes: 3 plantas, Call Center, Delivery Central y oficinas. Parte de Intercorp (1 grupo, +30 empresas, +101,176 colaboradores, 12 países), en la plataforma de Entretenimiento y Hospitalidad (con Casa Andina, Cineplanet y La Tinka; jefe de plataforma: Carlos Arce). Propósito: «Creamos experiencias que conectan y hacen la vida más feliz, entretenida y emocionante». Gerencia General NGR: Johanna Inti. Comité Directivo (útil para tus one-to-ones): Andrea Pardo (Sistemas), Ana Rosa Aguirre (Adm. y Finanzas/DAF), Nikitza Ivankovich (Supply Chain, Delivery Center y Desarrollo de Productos), Sandra Merino (Comercial y Marketing), Flavio Gutiérrez (Infraestructura y Mantenimiento), Lorena Arizmendi (Gestión y Desarrollo Humano), Rafael Alegría. Cultura: valores NGR (servicio, curiosidad/humildad, cuidado al detalle, perseverancia, mejora continua); programas de bienestar y salud (EPS, descansos médicos); «Cuenta Tres» (prevención de hostigamiento, diversidad e inclusión, equidad de género) con políticas de igualdad y no discriminación; y responsabilidad social e inserción laboral."
                 }
               ],
-              noti: "NGR es la plataforma de entretenimiento y hospitalidad de Intercorp (1 grupo, ~30 empresas). ~8,000 colaboradores, 14 años, ~400 tiendas en 17 locales. Cultura centrada en las personas (Great Place to Work). Cross con Cineplanet, Casa Andina y La Tinka; Delia Bustamante (cross). Áreas: Compras, Auditoría, Procesos, Asuntos Corporativos. Pendiente: pedir el video a Maya."
+              noti: "NGR — plataforma de entretenimiento y hospitalidad de Intercorp (1 grupo, ~30 empresas).\n- ~8,000 colaboradores · 14 años · ~400 tiendas en 17 locales\n- Cultura centrada en las personas (Great Place to Work)\n- Cross con Cineplanet, Casa Andina y La Tinka; Delia Bustamante (cross)\n- Áreas: Compras, Auditoría, Procesos, Asuntos Corporativos\nNota: pendiente pedir el video a Maya."
             },
             {
               id: "onb-s1-20-2",
@@ -76,7 +76,7 @@ const ONBOARDING = {
               persona: "Rodo",
               reunion: "Firma de documentos (Rodo) · Compensaciones",
               notionKey: "Firma de documentos. Rodo",
-              noti: "Compensaciones (Rodo): planillas; a los 3 años se pasa a planilla; Proyecto Nómina; productividad y horarios; tableros en Qlik Sense y Power BI; repositorio en la nube."
+              noti: "Compensaciones (Rodo)\n- Planillas; a los 3 años se pasa a planilla\n- Proyecto Nómina\n- Productividad y horarios\n- Tableros en Qlik Sense y Power BI\n- Repositorio en la nube"
             },
             { id: "onb-s1-20-4", titulo: "Almuerzo con Lore + Rafa", persona: "Lore + Rafa" },
             { id: "onb-s1-20-5", titulo: "Presentación de reportes directos", persona: "Rafa + Lore" },
@@ -92,16 +92,16 @@ const ONBOARDING = {
               persona: "Jorge (GU)",
               reunion: "Visita Papa John's · Onboarding PJ",
               notionKey: "Visita PAPA JOHNS",
-              noti: "No hay claridad del proyecto Libélula. Se necesita reforzar la capa de lealtad de forma personalizada. Hay un desfase entre los tiempos de solicitud y la respuesta oportuna por parte de TI."
+              noti: "Onboarding PJ\n- No hay claridad del proyecto Libélula\n- Reforzar la capa de lealtad de forma personalizada\n- Desfase entre los tiempos de solicitud y la respuesta oportuna de TI"
             },
-            { id: "onb-s1-21-2", titulo: "Working Lunch — Julio More", persona: "Julio More", reunion: "Working Lunch", notionKey: "Working Lunch — Julio More", noti: "Revisar el status de sus proyectos y el día a día. Explicación de la nueva propuesta de gestión." },
+            { id: "onb-s1-21-2", titulo: "Working Lunch — Julio More", persona: "Julio More", reunion: "Working Lunch", notionKey: "Working Lunch — Julio More", noti: "- Revisar el status de sus proyectos y el día a día\n- Explicación de la nueva propuesta de gestión" },
             {
               id: "onb-s1-21-3",
               titulo: "Visita Bembos",
               persona: "Henry (GO) y Nancy (GMKT)",
               reunion: "Visita Bembos · Onboarding BB",
               notionKey: "Visita BEMBOS",
-              noti: "Necesidad de reforzar el apalancamiento tecnológico. Salida con sentido de urgencia de los kioskos. Revisar el layout de la tienda y, junto con Operaciones, ir posicionando equipos (KDS). Consolidar herramientas para atención de agregadores."
+              noti: "Onboarding BB\n- Reforzar el apalancamiento tecnológico\n- Salida con sentido de urgencia de los kioskos\n- Revisar el layout de la tienda y, con Operaciones, ir posicionando equipos (KDS)\n- Consolidar herramientas para atención de agregadores"
             }
           ]
         },
@@ -114,16 +114,16 @@ const ONBOARDING = {
               persona: "Enrique (GU)",
               reunion: "Visita China Wok · Onboarding CW",
               notionKey: "Visita Chinawok",
-              noti: "Puntos de venta a renovar y buscar estar alineado con la necesidad del modelo de negocio. Pendiente de más información orquestada por el equipo de tecnología. Muchas tareas operativas manuales: oportunidad de automatización."
+              noti: "Onboarding CW\n- Puntos de venta a renovar, alineados a la necesidad del modelo de negocio\n- Pendiente de más información orquestada por el equipo de tecnología\n- Muchas tareas operativas manuales: oportunidad de automatización"
             },
-            { id: "onb-s1-22-2", titulo: "Working Lunch — Moises Godenzi", persona: "Moises Godenzi", reunion: "Working Lunch", notionKey: "Working Lunch — Moises Godenzi", noti: "Revisar el status de sus proyectos y el día a día. Explicación de la nueva propuesta de gestión." },
+            { id: "onb-s1-22-2", titulo: "Working Lunch — Moises Godenzi", persona: "Moises Godenzi", reunion: "Working Lunch", notionKey: "Working Lunch — Moises Godenzi", noti: "- Revisar el status de sus proyectos y el día a día\n- Explicación de la nueva propuesta de gestión" },
             {
               id: "onb-s1-22-3",
               titulo: "Visita Dunkin",
               persona: "Fiorella (GU)",
               reunion: "Visita Dunkin · Onboarding DD",
               notionKey: "Visita DUNKIN",
-              noti: "Necesidad de tener un Simphony alineado a su estrategia de negocio. Revisar respuestas a nivel de data. Horarios de soporte desalineados con negocio (abren 7 a.m. y soporte contesta desde las 8 a.m.)."
+              noti: "Onboarding DD\n- Necesidad de un Simphony alineado a su estrategia de negocio\n- Revisar respuestas a nivel de data\n- Horarios de soporte desalineados con negocio (abren 7 a.m. y soporte contesta desde las 8 a.m.)"
             }
           ]
         },
