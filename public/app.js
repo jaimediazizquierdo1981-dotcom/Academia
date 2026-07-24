@@ -327,6 +327,28 @@ async function actualizarDesdeNotion() {
       )
     )
   );
+
+  // Sección "Fuera de agenda": lista abierta que junta TODAS las reuniones
+  // no planificadas de Notion (actualiza las existentes y agrega las nuevas).
+  const rutaFda = (MUNDOS.onboarding.paquetes[0].rutas || []).find((r) => r.id === "onb-extra");
+  if (rutaFda && rutaFda.bloques[0]) {
+    const cards = rutaFda.bloques[0].lecciones;
+    (d.fda || []).forEach((f) => {
+      const titulo = (f.titulo && f.titulo.trim()) ? f.titulo.trim() : (f.contexto || "Reunión no planificada");
+      const hay = normKeyFront(titulo + " " + (f.contexto || ""));
+      const nid = "onb-fda-" + (normKeyFront(titulo).replace(/ /g, "-").slice(0, 40) || "x");
+      // ¿coincide con una tarjeta ya existente (curada o agregada antes)?
+      let card = cards.find((l) => l.notionKey && normKeyFront(l.notionKey).split(" ").filter(Boolean).every((tk) => hay.includes(tk)));
+      if (!card) card = cards.find((l) => l.id === nid);
+      if (card) {
+        if (f.notas && f.notas.trim()) card.noti = f.notas; // conserva archivo/evidencias
+      } else {
+        cards.push({ id: nid, titulo, persona: f.contexto || "", dia: f.fecha || "", noti: f.notas || "" });
+      }
+      n++;
+    });
+  }
+
   if (btn) { btn.disabled = false; btn.textContent = orig; }
   vistaPanel();
   toast(n ? `✓ ${n} tarjeta${n === 1 ? "" : "s"} actualizada${n === 1 ? "" : "s"} desde Notion` : "Notion leído · sin coincidencias para actualizar");

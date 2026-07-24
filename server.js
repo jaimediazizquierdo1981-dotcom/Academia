@@ -188,11 +188,12 @@ function normKey(s) {
 // Agrupa las líneas de Notion en sesiones: cada "(reunión)" abre una, y las
 // líneas siguientes (que no sean fecha ni archivo) son sus notas.
 function parseSessions(lines) {
-  const isDate = (s) => /^\d+\.\s*\d{1,2}\.\d{1,2}\.\d{2,4}/.test(s);
+  const isDate = (s) => /^(\d+\.\s*)?\d{1,2}\.\d{1,2}\.\d{2,4}/.test(s);
   const isReu = (s) => /^\(.*\)$/.test(s.trim());
   const isFile = (s) => /^[“"].*[”"]\s*$/.test(s.trim());
   const out = [];
-  let cur = null;
+  const fda = []; // reuniones "fuera de agenda" (sección de lista abierta)
+  let cur = null, curFda = null, prev = "", curDate = "";
   for (const s of lines) {
     const t = (s || "").trim();
     if (!t) continue;
@@ -200,22 +201,41 @@ function parseSessions(lines) {
       const reunion = t.replace(/^\(|\)$/g, "").trim();
       cur = { reunion, key: normKey(reunion), notes: [] };
       out.push(cur);
+      if (normKey(reunion).indexOf("fuera de agenda") !== -1) {
+        curFda = { contexto: prev, titulo: "", notas: [], fecha: curDate };
+        fda.push(curFda);
+      } else {
+        curFda = null;
+      }
     } else if (isDate(t)) {
-      cur = null;
+      const m = t.match(/\d{1,2}\.\d{1,2}\.\d{2,4}/);
+      if (m) curDate = m[0];
+      cur = null; curFda = null;
     } else if (isFile(t)) {
       // los archivos no van a las notas
-    } else if (cur) {
-      cur.notes.push(t);
+    } else {
+      if (cur) cur.notes.push(t);
+      if (curFda) { if (!curFda.titulo) curFda.titulo = t; else curFda.notas.push(t); }
     }
+    prev = t;
   }
-  return out.map((x) => ({ reunion: x.reunion, key: x.key, notes: x.notes.join(" ") }));
+  return {
+    sessions: out.map((x) => ({ reunion: x.reunion, key: x.key, notes: x.notes.join(" ") })),
+    fda: fda.map((x) => ({
+      contexto: (x.contexto || "").replace(/^\(|\)$/g, "").trim(),
+      titulo: x.titulo,
+      notas: x.notas.join(" "),
+      fecha: x.fecha,
+    })),
+  };
 }
 
 app.get("/api/notion", requireAuth, async (req, res) => {
   if (!NOTION_TOKEN) return res.json({ ok: false, reason: "no_token" });
   try {
     const lines = await fetchNotionLines();
-    res.json({ ok: true, sessions: parseSessions(lines) });
+    const parsed = parseSessions(lines);
+    res.json({ ok: true, sessions: parsed.sessions, fda: parsed.fda });
   } catch (err) {
     console.error("[Notion] Error:", err.message);
     res.status(502).json({ ok: false, reason: "error", detail: err.message });

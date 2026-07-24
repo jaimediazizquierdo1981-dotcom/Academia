@@ -232,7 +232,7 @@ const ONBOARDING = {
               titulo: "Salud, Seguridad y Servicios Generales",
               persona: "Sonia",
               dia: "Lun 20 jul",
-              notionKey: "Servicios Generales",
+              notionKey: "Sonia",
               evidencias: [
                 {
                   file: "Procesos básicos Salud, Seguridad y Servicios Generales .pdf",
