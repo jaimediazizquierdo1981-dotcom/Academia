@@ -299,16 +299,29 @@ async function actualizarDesdeNotion() {
     return;
   }
   if (!d.ok) { mostrarSetupNotion(d.reason, d.detail); return; }
-  const map = {};
-  (d.sessions || []).forEach((s) => { if (s.key) map[s.key] = s.notes; });
+  // Empareja de forma tolerante: la tarjeta hace match si TODAS las palabras de
+  // su notionKey están en el nombre de la reunión (aunque tenga palabras de más).
+  const sesiones = (d.sessions || []).map((s) => ({ notes: s.notes, toks: (s.key || "").split(" ").filter(Boolean) }));
+  function matchNotas(notionKey) {
+    const ct = normKeyFront(notionKey).split(" ").filter(Boolean);
+    if (!ct.length) return null;
+    let best = null, bestExtra = Infinity;
+    for (const s of sesiones) {
+      if (ct.every((t) => s.toks.includes(t))) {
+        const extra = s.toks.length - ct.length;
+        if (extra < bestExtra) { best = s; bestExtra = extra; }
+      }
+    }
+    return best;
+  }
   let n = 0;
   MUNDOS.onboarding.paquetes.forEach((p) =>
     (p.rutas || []).forEach((rt) =>
       rt.bloques.forEach((b) =>
         b.lecciones.forEach((l) => {
           if (l.notionKey) {
-            const k = normKeyFront(l.notionKey);
-            if (map[k] !== undefined && map[k] !== "") { l.noti = map[k]; n++; }
+            const m = matchNotas(l.notionKey);
+            if (m && m.notes && m.notes.trim()) { l.noti = m.notes; n++; }
           }
         })
       )

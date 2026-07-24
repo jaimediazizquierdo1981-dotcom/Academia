@@ -135,7 +135,7 @@ const ONBOARDING = {
         {
           titulo: "Viernes 24",
           lecciones: [
-            { id: "onb-s1-24-1", titulo: "Visita Popeyes", persona: "Gissela (GU)", reunion: "Visita Popeyes · Tienda TBD · Almuerzo en tienda" }
+            { id: "onb-s1-24-1", titulo: "Visita Popeyes", persona: "Gissela (GU)", notionKey: "Visita Popeyes", reunion: "Visita Popeyes · Tienda TBD · Almuerzo en tienda" }
           ]
         }
       ]
@@ -153,14 +153,14 @@ const ONBOARDING = {
         {
           titulo: "Lunes 27",
           lecciones: [
-            { id: "onb-s2-27-1", titulo: "Apertura de tienda (Bembos)", persona: "Pierina (JO)", reunion: "Apertura 7:00–9:00 · tienda por definir" },
-            { id: "onb-s2-27-2", titulo: "Full day con Johanna", persona: "Johanna", reunion: "Recorrido a tiendas (por definir)" }
+            { id: "onb-s2-27-1", titulo: "Apertura de tienda (Bembos)", persona: "Pierina (JO)", notionKey: "Apertura Bembos", reunion: "Apertura 7:00–9:00 · tienda por definir" },
+            { id: "onb-s2-27-2", titulo: "Full day con Johanna", persona: "Johanna", notionKey: "Full day Johanna", reunion: "Recorrido a tiendas (por definir)" }
           ]
         },
         { titulo: "Martes 28 · Feriado", feriado: true, lecciones: [ { id: "onb-s2-28-fer", titulo: "Feriado — Fiestas Patrias", na: true } ] },
         { titulo: "Miércoles 29 · Feriado", feriado: true, lecciones: [ { id: "onb-s2-29-fer", titulo: "Feriado — Fiestas Patrias", na: true } ] },
-        { titulo: "Jueves 30", lecciones: [ { id: "onb-s2-30-1", titulo: "Cierre de tienda (Popeyes)", persona: "Lisandro (JO)", reunion: "Cierre 18:00–01:00 · Tienda Larco" } ] },
-        { titulo: "Viernes 31", lecciones: [ { id: "onb-s2-31-1", titulo: "Cierre de tienda (Papa John's)", persona: "Enrique (JO)", reunion: "Cierre 18:00–01:00 · Tienda Benavides 20" } ] }
+        { titulo: "Jueves 30", lecciones: [ { id: "onb-s2-30-1", titulo: "Cierre de tienda (Popeyes)", persona: "Lisandro (JO)", notionKey: "Cierre Popeyes", reunion: "Cierre 18:00–01:00 · Tienda Larco" } ] },
+        { titulo: "Viernes 31", lecciones: [ { id: "onb-s2-31-1", titulo: "Cierre de tienda (Papa John's)", persona: "Enrique (JO)", notionKey: "Cierre Papa Johns", reunion: "Cierre 18:00–01:00 · Tienda Benavides 20" } ] }
       ]
     },
 
@@ -176,28 +176,28 @@ const ONBOARDING = {
         {
           titulo: "Lunes 3",
           lecciones: [
-            { id: "onb-s3-03-1", titulo: "Visita a plantas", persona: "Nikitza Ivankovich y Mafer", reunion: "Esmeralda · QCC · Lince (8:30–17:00)" },
-            { id: "onb-s3-03-2", titulo: "Reunión Delivery Center", persona: "Roberto y Nikitza Ivankovich" }
+            { id: "onb-s3-03-1", titulo: "Visita a plantas", persona: "Nikitza Ivankovich y Mafer", notionKey: "Visita plantas", reunion: "Esmeralda · QCC · Lince (8:30–17:00)" },
+            { id: "onb-s3-03-2", titulo: "Reunión Delivery Center", persona: "Roberto y Nikitza Ivankovich", notionKey: "Delivery Center" }
           ]
         },
         {
           titulo: "Martes 4",
           lecciones: [
-            { id: "onb-s3-04-1", titulo: "Visita a RANSA", persona: "Nikitza Ivankovich y Mafer" },
+            { id: "onb-s3-04-1", titulo: "Visita a RANSA", persona: "Nikitza Ivankovich y Mafer", notionKey: "Visita RANSA" },
             { id: "onb-s3-04-2", titulo: "Almuerzo con Niki y Mafer", persona: "Nikitza Ivankovich y Mafer" },
-            { id: "onb-s3-04-3", titulo: "One-to-one con Ana Rosa — DAF", persona: "Ana Rosa Aguirre", alcance: "Dirección de Administración y Finanzas (DAF).", reunion: "Comunal (por confirmar)" },
-            { id: "onb-s3-04-4", titulo: "One-to-one con Niki — Supply", persona: "Nikitza Ivankovich", alcance: "Supply Chain, Delivery Center y Desarrollo de Productos.", reunion: "Comunal" }
+            { id: "onb-s3-04-3", titulo: "One-to-one con Ana Rosa — DAF", persona: "Ana Rosa Aguirre", notionKey: "One to one Ana Rosa", alcance: "Dirección de Administración y Finanzas (DAF).", reunion: "Comunal (por confirmar)" },
+            { id: "onb-s3-04-4", titulo: "One-to-one con Niki — Supply", persona: "Nikitza Ivankovich", notionKey: "One to one Niki", alcance: "Supply Chain, Delivery Center y Desarrollo de Productos.", reunion: "Comunal" }
           ]
         },
         {
           titulo: "Miércoles 5",
           lecciones: [
-            { id: "onb-s3-05-1", titulo: "One-to-one con Delia — Plataforma", persona: "Delia Bustamante", alcance: "VP de Administración y Finanzas de la plataforma de Entretenimiento y Hospitalidad.", reunion: "Comunal" },
-            { id: "onb-s3-05-2", titulo: "One-to-one con Rafa", persona: "Rafael Alegría" }
+            { id: "onb-s3-05-1", titulo: "One-to-one con Delia — Plataforma", persona: "Delia Bustamante", notionKey: "One to one Delia", alcance: "VP de Administración y Finanzas de la plataforma de Entretenimiento y Hospitalidad.", reunion: "Comunal" },
+            { id: "onb-s3-05-2", titulo: "One-to-one con Rafa", persona: "Rafael Alegría", notionKey: "One to one Rafa" }
           ]
         },
         { titulo: "Jueves 6 · Feriado", feriado: true, lecciones: [ { id: "onb-s3-06-fer", titulo: "Feriado", na: true } ] },
-        { titulo: "Viernes 7", lecciones: [ { id: "onb-s3-07-1", titulo: "Visita Don Belisario", persona: "Harol (GU)", reunion: "Visita Don Belisario · Tienda TBD · Almuerzo en tienda" } ] }
+        { titulo: "Viernes 7", lecciones: [ { id: "onb-s3-07-1", titulo: "Visita Don Belisario", persona: "Harol (GU)", notionKey: "Visita Don Belisario", reunion: "Visita Don Belisario · Tienda TBD · Almuerzo en tienda" } ] }
       ]
     },
 
@@ -210,7 +210,7 @@ const ONBOARDING = {
       resumen: "One-to-ones finales y cierre de la ruta de inducción.",
       porque: "Cerrar la etapa de inducción y aterrizar prioridades con las áreas comercial y de negocio.",
       bloques: [
-        { titulo: "Lunes 10", lecciones: [ { id: "onb-s4-10-1", titulo: "One-to-one con Sandra — Comercial", persona: "Sandra Merino", alcance: "Comercial y Marketing.", reunion: "Comunal" } ] },
+        { titulo: "Lunes 10", lecciones: [ { id: "onb-s4-10-1", titulo: "One-to-one con Sandra — Comercial", persona: "Sandra Merino", notionKey: "One to one Sandra", alcance: "Comercial y Marketing.", reunion: "Comunal" } ] },
         { titulo: "Martes 11 – Viernes 14", lecciones: [ { id: "onb-s4-resto", titulo: "Por planificar", na: true } ] }
       ]
     },
