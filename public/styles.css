@@ -206,3 +206,7 @@ footer{margin-top:2.6rem;padding-top:1.3rem;border-top:1px solid var(--line);
 .notion-setup ol{margin:.6rem 0 .6rem 1.2rem}
 .notion-setup li{font-size:.88rem;color:var(--ink);margin-bottom:.5rem}
 .notion-setup code{background:var(--panel-2);color:#9ec5ff;padding:1px 6px;border-radius:5px;font-family:ui-monospace,monospace;font-size:.82rem}
+.toast{position:fixed;left:50%;bottom:26px;transform:translateX(-50%) translateY(12px);
+  background:#1b2130;border:1px solid var(--line);color:var(--ink);padding:10px 18px;border-radius:10px;
+  font-size:.86rem;box-shadow:0 10px 30px rgba(0,0,0,.45);opacity:0;transition:.25s ease;z-index:1000;pointer-events:none}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}

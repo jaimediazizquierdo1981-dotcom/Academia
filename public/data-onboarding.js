@@ -49,6 +49,7 @@ const ONBOARDING = {
               titulo: "Inducción corporativa",
               persona: "Lorena y Maya",
               reunion: "Inducción corporativa (Lore + Maya) · RRHH",
+              notionKey: "Inducción corporativa Lore + Maya",
               evidencias: [
                 {
                   file: "Explicación Estructura NGR.jpeg",
@@ -74,6 +75,7 @@ const ONBOARDING = {
               titulo: "Firma de documentos",
               persona: "Rodo",
               reunion: "Firma de documentos (Rodo) · Compensaciones",
+              notionKey: "Firma de documentos. Rodo",
               noti: "Compensaciones (Rodo): planillas; a los 3 años se pasa a planilla; Proyecto Nómina; productividad y horarios; tableros en Qlik Sense y Power BI; repositorio en la nube."
             },
             { id: "onb-s1-20-4", titulo: "Almuerzo con Lore + Rafa", persona: "Lore + Rafa" },
@@ -89,14 +91,16 @@ const ONBOARDING = {
               titulo: "Visita Papa John's",
               persona: "Jorge (GU)",
               reunion: "Visita Papa John's · Onboarding PJ",
+              notionKey: "Visita PAPA JOHNS",
               noti: "No hay claridad del proyecto Libélula. Se necesita reforzar la capa de lealtad de forma personalizada. Hay un desfase entre los tiempos de solicitud y la respuesta oportuna por parte de TI."
             },
-            { id: "onb-s1-21-2", titulo: "Working Lunch — Julio More", persona: "Julio More", reunion: "Working Lunch", noti: "Revisar el status de sus proyectos y el día a día. Explicación de la nueva propuesta de gestión." },
+            { id: "onb-s1-21-2", titulo: "Working Lunch — Julio More", persona: "Julio More", reunion: "Working Lunch", notionKey: "Working Lunch — Julio More", noti: "Revisar el status de sus proyectos y el día a día. Explicación de la nueva propuesta de gestión." },
             {
               id: "onb-s1-21-3",
               titulo: "Visita Bembos",
               persona: "Henry (GO) y Nancy (GMKT)",
               reunion: "Visita Bembos · Onboarding BB",
+              notionKey: "Visita BEMBOS",
               noti: "Necesidad de reforzar el apalancamiento tecnológico. Salida con sentido de urgencia de los kioskos. Revisar el layout de la tienda y, junto con Operaciones, ir posicionando equipos (KDS). Consolidar herramientas para atención de agregadores."
             }
           ]
@@ -109,14 +113,16 @@ const ONBOARDING = {
               titulo: "Visita China Wok",
               persona: "Enrique (GU)",
               reunion: "Visita China Wok · Onboarding CW",
+              notionKey: "Visita Chinawok",
               noti: "Puntos de venta a renovar y buscar estar alineado con la necesidad del modelo de negocio. Pendiente de más información orquestada por el equipo de tecnología. Muchas tareas operativas manuales: oportunidad de automatización."
             },
-            { id: "onb-s1-22-2", titulo: "Working Lunch — Moises Godenzi", persona: "Moises Godenzi", reunion: "Working Lunch", noti: "Revisar el status de sus proyectos y el día a día. Explicación de la nueva propuesta de gestión." },
+            { id: "onb-s1-22-2", titulo: "Working Lunch — Moises Godenzi", persona: "Moises Godenzi", reunion: "Working Lunch", notionKey: "Working Lunch — Moises Godenzi", noti: "Revisar el status de sus proyectos y el día a día. Explicación de la nueva propuesta de gestión." },
             {
               id: "onb-s1-22-3",
               titulo: "Visita Dunkin",
               persona: "Fiorella (GU)",
               reunion: "Visita Dunkin · Onboarding DD",
+              notionKey: "Visita DUNKIN",
               noti: "Necesidad de tener un Simphony alineado a su estrategia de negocio. Revisar respuestas a nivel de data. Horarios de soporte desalineados con negocio (abren 7 a.m. y soporte contesta desde las 8 a.m.)."
             }
           ]
@@ -226,6 +232,7 @@ const ONBOARDING = {
               titulo: "Salud, Seguridad y Servicios Generales",
               persona: "Sonia",
               dia: "Lun 20 jul",
+              notionKey: "Fuera de agenda",
               evidencias: [
                 {
                   file: "Procesos básicos Salud, Seguridad y Servicios Generales .pdf",

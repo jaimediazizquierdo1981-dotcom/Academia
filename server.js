@@ -171,7 +171,7 @@ async function fetchNotionLines() {
       const t = b[b.type];
       const rich = t && t.rich_text;
       if (Array.isArray(rich)) {
-        const txt = rich.map((x) => x.plain_text).join("").trim();
+        const txt = rich.map((x) => x.plain_text).join("").replace(/\s*\n\s*/g, " ").trim();
         if (txt) lines.push(txt);
       }
     }
@@ -180,11 +180,41 @@ async function fetchNotionLines() {
   return lines;
 }
 
+// Normaliza un nombre de reunión a una clave comparable (sin acentos/mayúsculas/puntuación)
+function normKey(s) {
+  return s.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "").replace(/[^a-z0-9]+/g, " ").trim();
+}
+// Agrupa las líneas de Notion en sesiones: cada "(reunión)" abre una, y las
+// líneas siguientes (que no sean fecha ni archivo) son sus notas.
+function parseSessions(lines) {
+  const isDate = (s) => /^\d+\.\s*\d{1,2}\.\d{1,2}\.\d{2,4}/.test(s);
+  const isReu = (s) => /^\(.*\)$/.test(s.trim());
+  const isFile = (s) => /^[“"].*[”"]\s*$/.test(s.trim());
+  const out = [];
+  let cur = null;
+  for (const s of lines) {
+    const t = (s || "").trim();
+    if (!t) continue;
+    if (isReu(t)) {
+      const reunion = t.replace(/^\(|\)$/g, "").trim();
+      cur = { reunion, key: normKey(reunion), notes: [] };
+      out.push(cur);
+    } else if (isDate(t)) {
+      cur = null;
+    } else if (isFile(t)) {
+      // los archivos no van a las notas
+    } else if (cur) {
+      cur.notes.push(t);
+    }
+  }
+  return out.map((x) => ({ reunion: x.reunion, key: x.key, notes: x.notes.join(" ") }));
+}
+
 app.get("/api/notion", requireAuth, async (req, res) => {
   if (!NOTION_TOKEN) return res.json({ ok: false, reason: "no_token" });
   try {
     const lines = await fetchNotionLines();
-    res.json({ ok: true, lines });
+    res.json({ ok: true, sessions: parseSessions(lines) });
   } catch (err) {
     console.error("[Notion] Error:", err.message);
     res.status(502).json({ ok: false, reason: "error", detail: err.message });

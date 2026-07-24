@@ -274,59 +274,69 @@ function vistaPanel() {
   document.getElementById("logoutBtn").addEventListener("click", logout);
   document.getElementById("cambiarBtn").addEventListener("click", vistaInicio);
   const nb = document.getElementById("notionBtn");
-  if (nb) nb.addEventListener("click", vistaNotion);
+  if (nb) nb.addEventListener("click", actualizarDesdeNotion);
   bind();
 }
 
 // ============================================================
-//  VISTA NOTION: trae la página de inducción en vivo
+//  ACTUALIZAR DESDE NOTION: refresca las notas de las tarjetas
 // ============================================================
-async function vistaNotion() {
-  window.scrollTo(0, 0);
+function normKeyFront(s) {
+  return s.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "").replace(/[^a-z0-9]+/g, " ").trim();
+}
+async function actualizarDesdeNotion() {
+  const btn = document.getElementById("notionBtn");
+  const orig = btn ? btn.textContent : "";
+  if (btn) { btn.disabled = true; btn.textContent = "⏳ Leyendo Notion…"; }
+  let d;
+  try {
+    const r = await fetch("/api/notion");
+    if (r.status === 401) { window.location.href = "/login.html"; return; }
+    d = await r.json();
+  } catch (e) {
+    if (btn) { btn.disabled = false; btn.textContent = orig; }
+    toast("No se pudo conectar con Notion.");
+    return;
+  }
+  if (!d.ok) { mostrarSetupNotion(d.reason, d.detail); return; }
+  const map = {};
+  (d.sessions || []).forEach((s) => { if (s.key) map[s.key] = s.notes; });
+  let n = 0;
+  MUNDOS.onboarding.paquetes.forEach((p) =>
+    (p.rutas || []).forEach((rt) =>
+      rt.bloques.forEach((b) =>
+        b.lecciones.forEach((l) => {
+          if (l.notionKey) {
+            const k = normKeyFront(l.notionKey);
+            if (map[k] !== undefined && map[k] !== "") { l.noti = map[k]; n++; }
+          }
+        })
+      )
+    )
+  );
+  if (btn) { btn.disabled = false; btn.textContent = orig; }
+  vistaPanel();
+  toast(n ? `✓ ${n} tarjeta${n === 1 ? "" : "s"} actualizada${n === 1 ? "" : "s"} desde Notion` : "Notion leído · sin coincidencias para actualizar");
+}
+function toast(msg) {
+  const t = document.createElement("div");
+  t.className = "toast";
+  t.textContent = msg;
+  document.body.appendChild(t);
+  requestAnimationFrame(() => t.classList.add("show"));
+  setTimeout(() => { t.classList.remove("show"); setTimeout(() => t.remove(), 300); }, 2800);
+}
+function mostrarSetupNotion(reason, detail) {
   app.innerHTML = `
     <div class="wrap">
       <button class="back" id="backBtn">← Volver al onboarding</button>
       <div class="detail-head">
-        <p class="eyebrow" style="color:#f97316">Notion · en vivo</p>
-        <h1>Mis notas de Notion</h1>
-        <p class="resumen">Trayendo la última versión de tu página «Inducción NGR» directamente de Notion…</p>
+        <p class="eyebrow" style="color:#f97316">Notion</p>
+        <h1>Conectar Notion</h1>
       </div>
-      <div id="notion-out"><div class="spinner" style="margin:2.5rem auto"></div></div>
+      ${notionSetupHTML(reason, detail)}
     </div>`;
   document.getElementById("backBtn").addEventListener("click", vistaPanel);
-  const out = document.getElementById("notion-out");
-  try {
-    const r = await fetch("/api/notion");
-    if (r.status === 401) { window.location.href = "/login.html"; return; }
-    const d = await r.json();
-    if (!d.ok) { out.innerHTML = notionSetupHTML(d.reason, d.detail); return; }
-    out.innerHTML = renderNotionLines(d.lines);
-  } catch (e) {
-    out.innerHTML = notionSetupHTML("error", e.message);
-  }
-}
-function renderNotionLines(lines) {
-  const isDate = (s) => /^\d+\.\s*\d{1,2}\.\d{1,2}\.\d{2,4}/.test(s);
-  const isReu = (s) => /^\(.*\)$/.test(s.trim());
-  const isFile = (s) => /^[“"].*[”"]\s*$/.test(s.trim());
-  let html = "", open = false;
-  const close = () => (open ? "</div></div>" : "");
-  (lines || []).forEach((s) => {
-    if (isDate(s)) {
-      html += close();
-      html += `<div class="nblock"><p class="nblock-h">${s}</p><div class="nblock-body">`;
-      open = true;
-    } else if (isReu(s)) {
-      html += `<p class="nreu">${s}</p>`;
-    } else if (isFile(s)) {
-      html += `<span class="nfile">📎 ${s.replace(/[“”"]/g, "").trim()}</span>`;
-    } else {
-      html += `<p class="nline">${s}</p>`;
-    }
-  });
-  html += close();
-  if (!open) html = `<div class="nblock"><div class="nblock-body">${html}</div></div>`;
-  return `<p class="synced">✓ Sincronizado con Notion recién ahora</p>${html}`;
 }
 function notionSetupHTML(reason, detail) {
   if (reason === "no_token") {
