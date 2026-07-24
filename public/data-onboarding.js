@@ -179,14 +179,14 @@ const ONBOARDING = {
           lecciones: [
             { id: "onb-s3-04-1", titulo: "Visita a RANSA", persona: "Nikitza Ivankovich y Mafer" },
             { id: "onb-s3-04-2", titulo: "Almuerzo con Niki y Mafer", persona: "Nikitza Ivankovich y Mafer" },
-            { id: "onb-s3-04-3", titulo: "One-to-one con Ana Rosa — DAF", persona: "Ana Rosa Aguirre", reunion: "Comunal (por confirmar)" },
-            { id: "onb-s3-04-4", titulo: "One-to-one con Niki — Supply", persona: "Nikitza Ivankovich", reunion: "Comunal" }
+            { id: "onb-s3-04-3", titulo: "One-to-one con Ana Rosa — DAF", persona: "Ana Rosa Aguirre", alcance: "Dirección de Administración y Finanzas (DAF).", reunion: "Comunal (por confirmar)" },
+            { id: "onb-s3-04-4", titulo: "One-to-one con Niki — Supply", persona: "Nikitza Ivankovich", alcance: "Supply Chain, Delivery Center y Desarrollo de Productos.", reunion: "Comunal" }
           ]
         },
         {
           titulo: "Miércoles 5",
           lecciones: [
-            { id: "onb-s3-05-1", titulo: "One-to-one con Delia — Plataforma", persona: "Delia Bustamante", reunion: "Comunal" },
+            { id: "onb-s3-05-1", titulo: "One-to-one con Delia — Plataforma", persona: "Delia Bustamante", alcance: "VP de Administración y Finanzas de la plataforma de Entretenimiento y Hospitalidad.", reunion: "Comunal" },
             { id: "onb-s3-05-2", titulo: "One-to-one con Rafa", persona: "Rafael Alegría" }
           ]
         },
@@ -204,7 +204,7 @@ const ONBOARDING = {
       resumen: "One-to-ones finales y cierre de la ruta de inducción.",
       porque: "Cerrar la etapa de inducción y aterrizar prioridades con las áreas comercial y de negocio.",
       bloques: [
-        { titulo: "Lunes 10", lecciones: [ { id: "onb-s4-10-1", titulo: "One-to-one con Sandra — Comercial", persona: "Sandra Merino", reunion: "Comunal" } ] },
+        { titulo: "Lunes 10", lecciones: [ { id: "onb-s4-10-1", titulo: "One-to-one con Sandra — Comercial", persona: "Sandra Merino", alcance: "Comercial y Marketing.", reunion: "Comunal" } ] },
         { titulo: "Martes 11 – Viernes 14", lecciones: [ { id: "onb-s4-resto", titulo: "Por planificar", na: true } ] }
       ]
     },

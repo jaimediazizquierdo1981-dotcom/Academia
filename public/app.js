@@ -467,6 +467,7 @@ function leccionHTML(l, color) {
   if (l.dia) meta.push(`<span class="lec-meta dia">📅 ${l.dia}</span>`);
   if (l.reunion) meta.push(`<span class="lec-meta reu">🗓️ (${l.reunion})</span>`);
   const metaline = meta.length ? `<div class="lec-metaline">${meta.join("")}</div>` : "";
+  const alcance = l.alcance ? `<div class="lec-alcance">🎯 <b>Alcance:</b> ${l.alcance}</div>` : "";
 
   // bloque de evidencia: una reunión puede tener VARIOS archivos, cada uno
   // con su propia síntesis; más una sola síntesis de tus notas de Notion.
@@ -490,6 +491,7 @@ function leccionHTML(l, color) {
       <span class="lec-body">
         <span class="lec-title">${l.titulo}</span>
         ${metaline}
+        ${alcance}
         ${l.detalle ? `<div class="lec-detalle">${l.detalle}</div>` : ""}
         ${l.url ? `<a class="lec-link" href="${l.url}" target="_blank" rel="noopener">${l.url.replace(/^https?:\/\//, "").slice(0, 60)}</a>` : ""}
         ${ev}
