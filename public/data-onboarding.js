@@ -91,7 +91,7 @@ const ONBOARDING = {
               reunion: "Visita Papa John's · Onboarding PJ",
               noti: "No hay claridad del proyecto Libélula. Se necesita reforzar la capa de lealtad de forma personalizada. Hay un desfase entre los tiempos de solicitud y la respuesta oportuna por parte de TI."
             },
-            { id: "onb-s1-21-2", titulo: "Working Lunch — Julio More", reunion: "Working Lunch (por confirmar)" },
+            { id: "onb-s1-21-2", titulo: "Working Lunch — Julio More", persona: "Julio More", reunion: "Working Lunch", noti: "Revisar el status de sus proyectos y el día a día. Explicación de la nueva propuesta de gestión." },
             {
               id: "onb-s1-21-3",
               titulo: "Visita Bembos",
@@ -111,7 +111,7 @@ const ONBOARDING = {
               reunion: "Visita China Wok · Onboarding CW",
               noti: "Puntos de venta a renovar y buscar estar alineado con la necesidad del modelo de negocio. Pendiente de más información orquestada por el equipo de tecnología. Muchas tareas operativas manuales: oportunidad de automatización."
             },
-            { id: "onb-s1-22-2", titulo: "Working Lunch — Líder TI", reunion: "Working Lunch (por definir)" },
+            { id: "onb-s1-22-2", titulo: "Working Lunch — Moises Godenzi", persona: "Moises Godenzi", reunion: "Working Lunch", noti: "Revisar el status de sus proyectos y el día a día. Explicación de la nueva propuesta de gestión." },
             {
               id: "onb-s1-22-3",
               titulo: "Visita Dunkin",
@@ -130,8 +130,8 @@ const ONBOARDING = {
           titulo: "Viernes 24",
           lecciones: [
             { id: "onb-s1-24-1", titulo: "Visita Popeyes", persona: "Gissela (GU)", reunion: "Visita Popeyes · Tienda TBD · Almuerzo en tienda" },
-            { id: "onb-s1-24-2", titulo: "One-to-one con Andrea P", persona: "Andrea P", reunion: "Durante el almuerzo" },
-            { id: "onb-s1-24-3", titulo: "Popeyes con Simphony aplicado", persona: "Andrea P", reunion: "Ejemplo Libélula · procesos y desafíos operativos" }
+            { id: "onb-s1-24-2", titulo: "One-to-one con Andrea P", persona: "Andrea Pardo (Sistemas)", reunion: "Durante el almuerzo" },
+            { id: "onb-s1-24-3", titulo: "Popeyes con Simphony aplicado", persona: "Andrea Pardo (Sistemas)", reunion: "Ejemplo Libélula · procesos y desafíos operativos" }
           ]
         }
       ]
@@ -172,24 +172,24 @@ const ONBOARDING = {
         {
           titulo: "Lunes 3",
           lecciones: [
-            { id: "onb-s3-03-1", titulo: "Visita a plantas", persona: "Niki y Mafer", reunion: "Esmeralda · QCC · Lince (8:30–17:00)" },
-            { id: "onb-s3-03-2", titulo: "Reunión Delivery Center", persona: "Roberto y Niki" }
+            { id: "onb-s3-03-1", titulo: "Visita a plantas", persona: "Nikitza Ivankovich y Mafer", reunion: "Esmeralda · QCC · Lince (8:30–17:00)" },
+            { id: "onb-s3-03-2", titulo: "Reunión Delivery Center", persona: "Roberto y Nikitza Ivankovich" }
           ]
         },
         {
           titulo: "Martes 4",
           lecciones: [
-            { id: "onb-s3-04-1", titulo: "Visita a RANSA", persona: "Niki y Mafer" },
-            { id: "onb-s3-04-2", titulo: "Almuerzo con Niki y Mafer", persona: "Niki y Mafer" },
-            { id: "onb-s3-04-3", titulo: "One-to-one con Ana Rosa — DAF", persona: "Ana Rosa", reunion: "Comunal (por confirmar)" },
-            { id: "onb-s3-04-4", titulo: "One-to-one con Niki — Supply", persona: "Niki", reunion: "Comunal" }
+            { id: "onb-s3-04-1", titulo: "Visita a RANSA", persona: "Nikitza Ivankovich y Mafer" },
+            { id: "onb-s3-04-2", titulo: "Almuerzo con Niki y Mafer", persona: "Nikitza Ivankovich y Mafer" },
+            { id: "onb-s3-04-3", titulo: "One-to-one con Ana Rosa — DAF", persona: "Ana Rosa Aguirre", reunion: "Comunal (por confirmar)" },
+            { id: "onb-s3-04-4", titulo: "One-to-one con Niki — Supply", persona: "Nikitza Ivankovich", reunion: "Comunal" }
           ]
         },
         {
           titulo: "Miércoles 5",
           lecciones: [
-            { id: "onb-s3-05-1", titulo: "One-to-one con Delia — Plataforma", persona: "Delia", reunion: "Comunal" },
-            { id: "onb-s3-05-2", titulo: "One-to-one con Rafa", persona: "Rafa" }
+            { id: "onb-s3-05-1", titulo: "One-to-one con Delia — Plataforma", persona: "Delia Bustamante", reunion: "Comunal" },
+            { id: "onb-s3-05-2", titulo: "One-to-one con Rafa", persona: "Rafael Alegría" }
           ]
         },
         { titulo: "Jueves 6 · Feriado", feriado: true, lecciones: [ { id: "onb-s3-06-fer", titulo: "Feriado", na: true } ] },
@@ -206,7 +206,7 @@ const ONBOARDING = {
       resumen: "One-to-ones finales y cierre de la ruta de inducción.",
       porque: "Cerrar la etapa de inducción y aterrizar prioridades con las áreas comercial y de negocio.",
       bloques: [
-        { titulo: "Lunes 10", lecciones: [ { id: "onb-s4-10-1", titulo: "One-to-one con Sandra — Comercial", persona: "Sandra", reunion: "Comunal" } ] },
+        { titulo: "Lunes 10", lecciones: [ { id: "onb-s4-10-1", titulo: "One-to-one con Sandra — Comercial", persona: "Sandra Merino", reunion: "Comunal" } ] },
         { titulo: "Martes 11 – Viernes 14", lecciones: [ { id: "onb-s4-resto", titulo: "Por planificar", na: true } ] }
       ]
     },

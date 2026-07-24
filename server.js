@@ -20,6 +20,10 @@ const APP_PASSWORD = process.env.APP_PASSWORD || "cambia-esta-clave";
 const SESSION_SECRET = process.env.SESSION_SECRET || "secreto-de-sesion-local";
 const DATABASE_URL = process.env.DATABASE_URL; // la da Render Postgres
 
+// --- Notion (para el botón "Actualizar desde Notion") ---
+const NOTION_TOKEN = process.env.NOTION_TOKEN; // secreto de la integración de Notion
+const NOTION_PAGE_ID = process.env.NOTION_PAGE_ID || "3a36e04f-5a17-806e-8584-f5ce9c3a8bdf"; // página "Induccion NGR"
+
 // ============================================================
 //  BASE DE DATOS (Postgres) - aquí vive tu progreso, permanente
 // ============================================================
@@ -142,6 +146,48 @@ app.post("/api/progreso", requireAuth, async (req, res) => {
   } catch (err) {
     console.error("[DB] Error guardando progreso:", err.message);
     res.status(500).json({ error: "Error al guardar progreso" });
+  }
+});
+
+// ============================================================
+//  API DE NOTION (protegida) - lee la página de inducción en vivo
+// ============================================================
+async function fetchNotionLines() {
+  const lines = [];
+  let cursor = null;
+  do {
+    const url = new URL(`https://api.notion.com/v1/blocks/${NOTION_PAGE_ID}/children`);
+    url.searchParams.set("page_size", "100");
+    if (cursor) url.searchParams.set("start_cursor", cursor);
+    const r = await fetch(url, {
+      headers: {
+        Authorization: `Bearer ${NOTION_TOKEN}`,
+        "Notion-Version": "2022-06-28",
+      },
+    });
+    if (!r.ok) throw new Error(`Notion respondió ${r.status}`);
+    const d = await r.json();
+    for (const b of d.results || []) {
+      const t = b[b.type];
+      const rich = t && t.rich_text;
+      if (Array.isArray(rich)) {
+        const txt = rich.map((x) => x.plain_text).join("").trim();
+        if (txt) lines.push(txt);
+      }
+    }
+    cursor = d.has_more ? d.next_cursor : null;
+  } while (cursor);
+  return lines;
+}
+
+app.get("/api/notion", requireAuth, async (req, res) => {
+  if (!NOTION_TOKEN) return res.json({ ok: false, reason: "no_token" });
+  try {
+    const lines = await fetchNotionLines();
+    res.json({ ok: true, lines });
+  } catch (err) {
+    console.error("[Notion] Error:", err.message);
+    res.status(502).json({ ok: false, reason: "error", detail: err.message });
   }
 });
 

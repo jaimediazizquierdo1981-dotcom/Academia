@@ -184,3 +184,23 @@ footer{margin-top:2.6rem;padding-top:1.3rem;border-top:1px solid var(--line);
 .leccion.na{opacity:.5;border-style:dashed;background:transparent}
 .leccion.na .lec-title{font-weight:500;color:var(--muted)}
 .bloque.feriado .bloque-title{color:var(--muted);opacity:.75}
+
+/* ===== BOTÓN Y VISTA "ACTUALIZAR DESDE NOTION" ===== */
+.back.mini.notion{border-color:#f9731655;color:#f0a15f}
+.back.mini.notion:hover{border-color:#f97316;color:#ffb072;background:#f9731612}
+.synced{font-size:.8rem;color:var(--green);margin:0 0 1.2rem;font-family:ui-monospace,monospace}
+.nblock{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:1.1rem 1.3rem;margin-bottom:1rem;
+  border-left:3px solid #f97316}
+.nblock-h{font-weight:700;font-size:1rem;margin:0 0 .7rem;color:var(--ink)}
+.nblock-body{display:flex;flex-direction:column;gap:.15rem}
+.nreu{color:#c4b5fd;font-style:italic;font-size:.9rem;margin:.4rem 0 .1rem}
+.nfile{display:inline-flex;align-items:center;gap:.4rem;align-self:flex-start;background:var(--panel-2);
+  border:1px solid #2f3a66;border-radius:7px;padding:3px 9px;font-size:.76rem;color:#9ec5ff;font-weight:600;margin:.2rem 0}
+.nline{color:var(--muted);font-size:.86rem;margin:.1rem 0}
+.notion-setup{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:1.4rem 1.5rem}
+.notion-setup h3{margin:0 0 .6rem;color:var(--ink)}
+.notion-setup p{color:var(--ink);font-size:.9rem;margin:.5rem 0}
+.notion-setup p.muted{color:var(--muted)}
+.notion-setup ol{margin:.6rem 0 .6rem 1.2rem}
+.notion-setup li{font-size:.88rem;color:var(--ink);margin-bottom:.5rem}
+.notion-setup code{background:var(--panel-2);color:#9ec5ff;padding:1px 6px;border-radius:5px;font-family:ui-monospace,monospace;font-size:.82rem}

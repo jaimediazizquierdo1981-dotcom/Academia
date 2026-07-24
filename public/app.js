@@ -250,6 +250,7 @@ function vistaPanel() {
           <h1>${MUNDO.titulo}</h1>
         </div>
         <div class="top-actions">
+          ${onb ? `<button class="back mini notion" id="notionBtn">🔄 Actualizar desde Notion</button>` : ""}
           <button class="back mini" id="cambiarBtn">⇄ Cambiar</button>
           <button class="logout" id="logoutBtn">Salir</button>
         </div>
@@ -272,7 +273,81 @@ function vistaPanel() {
 
   document.getElementById("logoutBtn").addEventListener("click", logout);
   document.getElementById("cambiarBtn").addEventListener("click", vistaInicio);
+  const nb = document.getElementById("notionBtn");
+  if (nb) nb.addEventListener("click", vistaNotion);
   bind();
+}
+
+// ============================================================
+//  VISTA NOTION: trae la página de inducción en vivo
+// ============================================================
+async function vistaNotion() {
+  window.scrollTo(0, 0);
+  app.innerHTML = `
+    <div class="wrap">
+      <button class="back" id="backBtn">← Volver al onboarding</button>
+      <div class="detail-head">
+        <p class="eyebrow" style="color:#f97316">Notion · en vivo</p>
+        <h1>Mis notas de Notion</h1>
+        <p class="resumen">Trayendo la última versión de tu página «Inducción NGR» directamente de Notion…</p>
+      </div>
+      <div id="notion-out"><div class="spinner" style="margin:2.5rem auto"></div></div>
+    </div>`;
+  document.getElementById("backBtn").addEventListener("click", vistaPanel);
+  const out = document.getElementById("notion-out");
+  try {
+    const r = await fetch("/api/notion");
+    if (r.status === 401) { window.location.href = "/login.html"; return; }
+    const d = await r.json();
+    if (!d.ok) { out.innerHTML = notionSetupHTML(d.reason, d.detail); return; }
+    out.innerHTML = renderNotionLines(d.lines);
+  } catch (e) {
+    out.innerHTML = notionSetupHTML("error", e.message);
+  }
+}
+function renderNotionLines(lines) {
+  const isDate = (s) => /^\d+\.\s*\d{1,2}\.\d{1,2}\.\d{2,4}/.test(s);
+  const isReu = (s) => /^\(.*\)$/.test(s.trim());
+  const isFile = (s) => /^[“"].*[”"]\s*$/.test(s.trim());
+  let html = "", open = false;
+  const close = () => (open ? "</div></div>" : "");
+  (lines || []).forEach((s) => {
+    if (isDate(s)) {
+      html += close();
+      html += `<div class="nblock"><p class="nblock-h">${s}</p><div class="nblock-body">`;
+      open = true;
+    } else if (isReu(s)) {
+      html += `<p class="nreu">${s}</p>`;
+    } else if (isFile(s)) {
+      html += `<span class="nfile">📎 ${s.replace(/[“”"]/g, "").trim()}</span>`;
+    } else {
+      html += `<p class="nline">${s}</p>`;
+    }
+  });
+  html += close();
+  if (!open) html = `<div class="nblock"><div class="nblock-body">${html}</div></div>`;
+  return `<p class="synced">✓ Sincronizado con Notion recién ahora</p>${html}`;
+}
+function notionSetupHTML(reason, detail) {
+  if (reason === "no_token") {
+    return `
+      <div class="notion-setup">
+        <h3>Falta conectar Notion</h3>
+        <p>Para que este botón lea tu página en vivo, hay que darle al servidor un acceso de solo lectura a Notion:</p>
+        <ol>
+          <li>En <b>notion.so/my-integrations</b> crea una integración interna y copia su <b>Internal Integration Secret</b>.</li>
+          <li>Abre tu página «Inducción NGR» en Notion → menú <b>⋯</b> → <b>Connections</b> → conéctala a esa integración.</li>
+          <li>En Render → tu servicio web → <b>Environment</b>, agrega la variable <code>NOTION_TOKEN</code> con ese secreto (y redeploya).</li>
+        </ol>
+        <p class="muted">Cuando esté puesta, este botón traerá tus notas de Notion al instante.</p>
+      </div>`;
+  }
+  return `
+    <div class="notion-setup">
+      <h3>No se pudo leer Notion</h3>
+      <p class="muted">${detail || "Error desconocido."}</p>
+      <p>Revisa que la página esté conectada a la integración y que <code>NOTION_TOKEN</code> sea válido.</p>
+    </div>`;
 }
 
 function cardPaquete(p) {
