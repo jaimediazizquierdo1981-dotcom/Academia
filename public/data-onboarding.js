@@ -92,6 +92,13 @@ const ONBOARDING = {
               persona: "Jorge (GU)",
               reunion: "Visita Papa John's · Onboarding PJ",
               notionKey: "Visita PAPA JOHNS",
+              evidencias: [
+                {
+                  file: "Presentación PJ 2026.pdf",
+                  ruta: FUENTES + "Presentación PJ 2026.pdf",
+                  arch: "Business review de Papa John's a mayo 2026 (24 láminas: «Quiénes somos / Cómo estamos / A dónde vamos»). Escala de la marca: S/200M de facturación, +1,650 colaboradores, 77 tiendas y 2 QCC a nivel nacional. Posicionamiento «Expertos en Pizza / Pizza Cult», con RTB de masa fresca nunca congelada e insumos de alta calidad. Mezcla de canales (SSS): Agregadores es el mayor (mix ~35%), seguido de Salón inline (~25%), Web (~17%) y Salón FC (~16%); las palancas son campañas, alianzas y espacios en Rappi/PedidosYa. Por categoría, «Disruptive Value» crece fuerte (+69% de venta, apalancado en promociones) mientras «Abundant Value» cae (-48%); venta total S/4.0M (+7.3% vs 2025). Pirámide de gestión a mayo: ventas S/83.4MM (+3.5% vs 2025, -2% vs ppto), SSS +1.4%, Food Cost -31.4%, Labor -8.9%, EBITDA S/11.9MM (14.3%, +1.1pp); OSAT 78%, rotación 56% (mejorando), clima 93%. KPIs operativos may/jun: OSAT 88%, Food Cost 31.8%, Labor 8.7%, RNT 30%. Enfoque 2H'26 «La experiencia se construye con velocidad» —muy relevante para TI—: KDS «Pedido Listo» (2 tiendas operando, expansión proyectada a 20 locales), impresión automática en 56 tiendas, polígonos dinámicos de delivery y upgrade de Loginext para calcular capacidad de motorizados vs demanda y reducir anulaciones por falta de drivers (avances OSAT por tienda, p. ej. Benavides 20: 47%→69%). Cierra con el masterplan del QCC (capacidad 4,281 Tn/mes en 2026, forecast 3,843) y CAPEX."
+                }
+              ],
               noti: "Onboarding PJ\n- No hay claridad del proyecto Libélula\n- Reforzar la capa de lealtad de forma personalizada\n- Desfase entre los tiempos de solicitud y la respuesta oportuna de TI"
             },
             { id: "onb-s1-21-2", titulo: "Working Lunch — Julio More", persona: "Julio More", reunion: "Working Lunch", notionKey: "Working Lunch — Julio More", noti: "- Revisar el status de sus proyectos y el día a día\n- Explicación de la nueva propuesta de gestión" },
@@ -114,6 +121,13 @@ const ONBOARDING = {
               persona: "Enrique (GU)",
               reunion: "Visita China Wok · Onboarding CW",
               notionKey: "Visita Chinawok",
+              evidencias: [
+                {
+                  file: "CW Business Review Junio CW - vf.pdf",
+                  ruta: FUENTES + "CW Business Review Junio CW - vf.pdf",
+                  arch: "Business Review de China Wok a junio 2026 (6+6, 38 láminas: Revisión estratégica / Resultados —financieros, personas, operaciones, comercial— / Prioridades Q3). Estrategia: ser la marca de chifa fast food preferida, sobre los pilares «hecho al momento», conveniencia e innovación, con cobertura nacional presencial y digital. KPIs a mayo: venta S/9.2MM (+13.2% vs 2025, +5.7% vs objetivo), SSS +17.5%, Costo de venta 33.8% (mejora), Labor 10.1%, EBITDA de tienda 18.3% (S/1.7MM); OSAT 92.3% y On-Target OSAT 97.7%; clima TVNI 79%. Focos de alerta útiles para TI/operaciones: Auditoría RNT en 53.5% (objetivo 100%), Zona Verde de delivery propio 47.6%, Estabilidad Gerencial 49% y recolección de clientes únicos solo 4.3% (objetivo 30%). P&L 6+6: ventas netas S/41.7M (+8.2% vs ppto, +10.7% vs 2025), Food Cost -33.9%, EBITDA tienda AD S/8.0M (19.3%); acumulado 5+7 de S/109.3M. Palancas de Food Cost: centralizado de pollo (Cusco/Piura), pollo trozado, ajuste de precios de menuboard y recomposición en agregadores. Personas: rotación total ~68% con planes por tienda y padrinos (Comité de Rotación, Chinapits/onboarding); 90% de tiendas redujo rotación. Operaciones: despliegue de freidoras y vaporeras (licitaciones, 9 expedientes, 25 tiendas pendientes, llegada de equipos con retraso al 08/08), doble validación de inventario, balanzas de piso y checklist por turno en «Takary». Comercial/digital: venta por tienda +22% (S/212K); canales Salón (63%), Agregadores (Rappi +7%, PedidosYa +3%), Delivery Propio y Web (sesiones +79%, transacciones +59.9%, conversión 6.1%); TOM de la categoría chifas lidera Chinawok (68%); rediseño de carta en PedidosYa (de 13 a 8 categorías) y estrategia MB Yape 2026 para subir ticket. Prioridades Q3: (1) freidoras y vaporeras, (2) lanzamiento y estabilización de «Mostrazo», (3) rotación/retención en tiendas críticas."
+                }
+              ],
               noti: "Onboarding CW\n- Puntos de venta a renovar, alineados a la necesidad del modelo de negocio\n- Pendiente de más información orquestada por el equipo de tecnología\n- Muchas tareas operativas manuales: oportunidad de automatización"
             },
             { id: "onb-s1-22-2", titulo: "Working Lunch — Moises Godenzi", persona: "Moises Godenzi", reunion: "Working Lunch", notionKey: "Working Lunch — Moises Godenzi", noti: "- Revisar el status de sus proyectos y el día a día\n- Explicación de la nueva propuesta de gestión" },
