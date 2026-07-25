@@ -33,6 +33,7 @@ const MUNDOS = {
   },
 };
 let MUNDO = MUNDOS.aprendizaje;
+let onbSynced = false; // ¿ya se sincronizó el onboarding con Notion en esta carga?
 
 // ---- helpers de datos ----
 function todasLasLecciones() {
@@ -158,7 +159,16 @@ function vistaInicio() {
   document.getElementById("logoutBtn").addEventListener("click", confirmarCerrarSesion);
   Object.values(MUNDOS).forEach((m) => {
     const el = document.getElementById(`mundo-${m.key}`);
-    if (el) el.addEventListener("click", () => { MUNDO = m; vistaPanel(); });
+    if (el) el.addEventListener("click", () => {
+      MUNDO = m;
+      if (m.tipo === "onboarding" && !onbSynced && typeof ONBOARDING !== "undefined") {
+        app.className = "loading";
+        app.innerHTML = '<div class="spinner"></div>';
+        autoSyncOnboarding(); // trae Notion y luego pinta el panel
+      } else {
+        vistaPanel();
+      }
+    });
   });
 }
 
@@ -284,23 +294,19 @@ function vistaPanel() {
 function normKeyFront(s) {
   return s.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "").replace(/[^a-z0-9]+/g, " ").trim();
 }
-async function actualizarDesdeNotion() {
-  const btn = document.getElementById("notionBtn");
-  const orig = btn ? btn.textContent : "";
-  if (btn) { btn.disabled = true; btn.textContent = "⏳ Leyendo Notion…"; }
-  let d;
-  try {
-    const r = await fetch("/api/notion");
-    if (r.status === 401) { window.location.href = "/login.html"; return; }
-    d = await r.json();
-  } catch (e) {
-    if (btn) { btn.disabled = false; btn.textContent = orig; }
-    toast("No se pudo conectar con Notion.");
-    return;
-  }
-  if (!d.ok) { mostrarSetupNotion(d.reason, d.detail); return; }
-  // Empareja de forma tolerante: la tarjeta hace match si TODAS las palabras de
-  // su notionKey están en el nombre de la reunión (aunque tenga palabras de más).
+// Convierte "25.07.26" → "Sáb 25 jul" (día de la semana + día + mes).
+function fechaBonita(f) {
+  const m = String(f || "").match(/(\d{1,2})\.(\d{1,2})\.(\d{2,4})/);
+  if (!m) return f || "";
+  const d = +m[1], mo = +m[2], y = m[3].length === 2 ? 2000 + +m[3] : +m[3];
+  const dt = new Date(y, mo - 1, d);
+  if (isNaN(dt.getTime())) return f;
+  const dias = ["Dom", "Lun", "Mar", "Mié", "Jue", "Vie", "Sáb"];
+  const mes = ["ene", "feb", "mar", "abr", "may", "jun", "jul", "ago", "sep", "oct", "nov", "dic"];
+  return `${dias[dt.getDay()]} ${d} ${mes[mo - 1]}`;
+}
+// Aplica el contenido de Notion (d) sobre los datos del onboarding. Devuelve nº de tarjetas tocadas.
+function aplicarNotion(d) {
   const sesiones = (d.sessions || []).map((s) => ({ notes: s.notes, toks: (s.key || "").split(" ").filter(Boolean) }));
   function matchNotas(notionKey) {
     const ct = normKeyFront(notionKey).split(" ").filter(Boolean);
@@ -327,9 +333,7 @@ async function actualizarDesdeNotion() {
       )
     )
   );
-
-  // Sección "Fuera de agenda": lista abierta que junta TODAS las reuniones
-  // no planificadas de Notion (actualiza las existentes y agrega las nuevas).
+  // Sección "Fuera de agenda": junta TODAS las reuniones no planificadas de Notion.
   const rutaFda = (MUNDOS.onboarding.paquetes[0].rutas || []).find((r) => r.id === "onb-extra");
   if (rutaFda && rutaFda.bloques[0]) {
     const cards = rutaFda.bloques[0].lecciones;
@@ -337,21 +341,52 @@ async function actualizarDesdeNotion() {
       const titulo = (f.titulo && f.titulo.trim()) ? f.titulo.trim() : (f.contexto || "Reunión no planificada");
       const hay = normKeyFront(titulo + " " + (f.contexto || ""));
       const nid = "onb-fda-" + (normKeyFront(titulo).replace(/ /g, "-").slice(0, 40) || "x");
-      // ¿coincide con una tarjeta ya existente (curada o agregada antes)?
       let card = cards.find((l) => l.notionKey && normKeyFront(l.notionKey).split(" ").filter(Boolean).every((tk) => hay.includes(tk)));
       if (!card) card = cards.find((l) => l.id === nid);
       if (card) {
         if (f.notas && f.notas.trim()) card.noti = f.notas; // conserva archivo/evidencias
       } else {
-        cards.push({ id: nid, titulo, persona: f.contexto || "", dia: f.fecha || "", noti: f.notas || "" });
+        cards.push({ id: nid, titulo, persona: f.contexto || "", dia: fechaBonita(f.fecha), noti: f.notas || "" });
       }
       n++;
     });
   }
+  return n;
+}
 
+// Botón manual "Actualizar desde Notion"
+async function actualizarDesdeNotion() {
+  const btn = document.getElementById("notionBtn");
+  const orig = btn ? btn.textContent : "";
+  if (btn) { btn.disabled = true; btn.textContent = "⏳ Leyendo Notion…"; }
+  let d;
+  try {
+    const r = await fetch("/api/notion");
+    if (r.status === 401) { window.location.href = "/login.html"; return; }
+    d = await r.json();
+  } catch (e) {
+    if (btn) { btn.disabled = false; btn.textContent = orig; }
+    toast("No se pudo conectar con Notion.");
+    return;
+  }
+  if (!d.ok) { if (btn) { btn.disabled = false; btn.textContent = orig; } mostrarSetupNotion(d.reason, d.detail); return; }
+  const n = aplicarNotion(d);
+  onbSynced = true;
   if (btn) { btn.disabled = false; btn.textContent = orig; }
   vistaPanel();
   toast(n ? `✓ ${n} tarjeta${n === 1 ? "" : "s"} actualizada${n === 1 ? "" : "s"} desde Notion` : "Notion leído · sin coincidencias para actualizar");
+}
+
+// Sincronización automática y silenciosa al entrar al Onboarding
+async function autoSyncOnboarding() {
+  try {
+    const r = await fetch("/api/notion");
+    if (r.status === 401) { window.location.href = "/login.html"; return; }
+    const d = await r.json();
+    if (d && d.ok) aplicarNotion(d); // sin token/erro: se muestran las semillas
+  } catch (e) { /* sin conexión: se muestran las semillas */ }
+  onbSynced = true;
+  vistaPanel();
 }
 function toast(msg) {
   const t = document.createElement("div");
