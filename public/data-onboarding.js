@@ -156,7 +156,21 @@ const ONBOARDING = {
         {
           titulo: "Viernes 24",
           lecciones: [
-            { id: "onb-s1-24-1", titulo: "Visita Popeyes", persona: "Gissela (GU)", notionKey: "Visita Popeyes", reunion: "Visita Popeyes · Tienda TBD · Almuerzo en tienda" }
+            {
+              id: "onb-s1-24-1",
+              titulo: "Visita Popeyes",
+              persona: "Gissela (GU)",
+              notionKey: "Visita Popeyes",
+              reunion: "Visita Popeyes · Onboarding PP",
+              evidencias: [
+                {
+                  file: "PP Buisness review Jun 2026.pdf",
+                  ruta: FUENTES + "PP Buisness review Jun 2026.pdf",
+                  arch: "Business Review de Popeyes a mayo 2026 (28 láminas: Estrategia y Big Bets / Resultados —financieros, comercial, operaciones, gestión humana— / Aprendizajes). Visión: ser la marca líder de pollo frito del Perú (sabor cajún). Los cinco Big Bets 2026 incluyen uno explícitamente tecnológico: «Tecnología front y back para mejorar la experiencia del cliente», junto a comunicación, plan de expansión en Inlines, desarrollo de personas y mejora del food cost. Resultados a mayo: venta S/21.5MM (+22% vs 2025, -1.4% vs objetivo), SSS 7.2%, Costo de venta 39.7%, Labor 9.1%, EBITDA de tienda 16.5% (S/3.6MM); OSAT On-Target 91.4%. Puntos de alerta: Auditoría RNT 43% (objetivo 100%), Zona Verde de delivery propio 58.5%, y sobre todo Estabilidad Gerencial en 24% (muy baja). P&L 6+6: ventas netas S/274.3M (+25.1% vs 2025, +1.4% vs ppto), EBITDA tienda AD S/49.3M (18%); FY +S/3.32M vs ppto. Palancas de food cost/CAPEX: freidoras chinas (50% más baratas), cocinas de 70m² con layout lineal, nuggets frescos, batter local y negociación con San Fernando. Comercial: canal Salón 66.8%, Agregador 26.7%, Delivery Propio 6.5%; rebrand del Chicken Wrap y almuerzos (+120% de venta), venta sugestiva y menuboard por categorías en Salón (piloto de 8 tiendas, despliegue de 51 en julio, +3.7% de venta). La lámina clave para tu rol es «Tecnología de Punto de Venta: Libélula y KDS»: Libélula baja los tiempos de caja de 96.9s a 74.8s a nivel marca (-22s) y sube el CSAT +4.3pp; en la comparativa KDS de Pixel vs Simphony, Simphony gana con claridad (preparación 132\" vs 359\" de Pixel, total 3'24\" vs 7'28\"), lo que respalda tu postura de que Simphony y KDS son el mismo proyecto. El rollout de Libélula va por etapas (6 locales nov25-ene26, 10 al cierre de jun26 ya prendidas, 38 de delivery en ago26). En «Kioskos», 31 tiendas medium/low (2-3 kioskos + 1 caja) con despliegue Etapa 1 oct-26 (35 tiendas Lima, 58%), Etapa 2 Q1-27 (Lima y Arequipa, 73%) y Etapa 3 Q2-27 (provincia, 100%); adopción proyectada 30% al mes 6 y 40% al mes 12, con tiempo en kiosko bajando de 4 a 2 min. El aprendizaje de cierre lo confirma: el foco de experiencia es el «escalamiento de tiendas Libélula + KDS + Kioscos»."
+                }
+              ],
+              noti: "Onboarding PP\n- Darle celeridad al Proyecto Libélula y orquestarlo con Kioskos\n- Se reafirma (de mi parte) que Simphony y KDS son el MISMO proyecto\n- Muchas tareas operativas manuales: oportunidad de automatización"
+            }
           ]
         }
       ]
