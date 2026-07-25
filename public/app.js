@@ -345,6 +345,7 @@ function aplicarNotion(d) {
       if (!card) card = cards.find((l) => l.id === nid);
       if (card) {
         if (f.notas && f.notas.trim()) card.noti = f.notas; // conserva archivo/evidencias
+        if (f.fecha) card.dia = fechaBonita(f.fecha); // la fecha también se actualiza desde Notion
       } else {
         cards.push({ id: nid, titulo, persona: f.contexto || "", dia: fechaBonita(f.fecha), noti: f.notas || "" });
       }
