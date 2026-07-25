@@ -137,6 +137,13 @@ const ONBOARDING = {
               persona: "Fiorella (GU)",
               reunion: "Visita Dunkin · Onboarding DD",
               notionKey: "Visita DUNKIN",
+              evidencias: [
+                {
+                  file: "1. Business Review Junio 2026 DD - copia.pdf",
+                  ruta: FUENTES + "1. Business Review Junio 2026 DD - copia.pdf",
+                  arch: "Business Review de Dunkin a junio 2026 (23 láminas: Resultados Q2 / Plan estratégico Q3 / Revisión P&L 6+6). Resultados acumulados: venta S/29.0MM (+11.2% vs 2025, -0.4% vs ppto), SSS +6.7%, Food Cost 28.3%, Labor 10.9%, EBITDA AD S/6.0M (20.7%, +2.3pp vs 2025); en Q2 la venta cae levemente vs ppto (-2.8%). Indicadores de gestión: OSAT OT 96%, RNT OT 54% (bajo objetivo), rotación 45.6% (mejora fuerte, -22.2pp), cobertura 97%, clima/TVNI 94%. Por atributo de servicio el punto débil es Velocidad (70% OT) y Exactitud/Temperatura (90% OT). Categorías SSS: Bebidas, Donuts y Sandwich; la apuesta estratégica es posicionarse como «marca de bebidas frías affordable» (refreshers, WPSA bebidas frías 172 vs objetivo 170) y desarrollar munchkins como snacking; el sandwich cae por la salida temporal del Croissant de Pollo (cambio de proveedor, 21% del mix). El On-Target por tienda es débil (18% en junio, 14/77 tiendas). Plan estratégico Q3, con mucha carga tecnológica relevante para tu rol: nuevo equipamiento KDS/ODS, dispensador de leche, PHU, BUNN té/café, Tap System y etiquetador/sellador de vasos; despliegue de Kioskos Digitales (aperturas set-26 e inlines ago-set; venta por kiosko 0.99% vs objetivo 1.5%); menu management en inlines (pilotos jul-ago); rebranding de marca (música Gen Z, uniformes, packaging de cajas y vasos, merchandising); y frente de personas (nuevo perfil de colaborador, entrenamiento FILL/REFILL, garantía «Make It Right», Hospitality Leaders, automatización de la línea de carrera T4-T3). Incluye aperturas y remodelaciones «Tiendas 360°»/terrazas (Plaza Lima Sur, RP Chorrillos, RP Arequipa, Mega Independencia, Santa Clara, Minka, Salaverry). Nota crítica para TI: «Sistemas — el proyecto Libélula inicia en setiembre» y la participación de agregadores sube de 11.7% a 12.2%. Enlaza directo con tu registro de la visita (necesidad de un Simphony alineado al negocio y horarios de soporte desalineados)."
+                }
+              ],
               noti: "Onboarding DD\n- Necesidad de un Simphony alineado a su estrategia de negocio\n- Revisar respuestas a nivel de data\n- Horarios de soporte desalineados con negocio (abren 7 a.m. y soporte contesta desde las 8 a.m.)"
             }
           ]
